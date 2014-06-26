@@ -37,7 +37,7 @@ namespace TileRealms
 
         public void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>("Random_warrior");
+            texture = content.Load<Texture2D>("other\\Random_warrior");
         }
 
         public void UnloadContent()

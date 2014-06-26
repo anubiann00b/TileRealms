@@ -138,8 +138,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="Content\Basic-spritesheet.xnb" />
-    <Content Include="Content\Random_warrior.xnb" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -147,10 +145,10 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Content\Basic-spritesheet.png" />
-    <Content Include="Content\Random_warrior.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
