@@ -14,8 +14,9 @@ namespace TileRealms
         SpriteBatch spriteBatch;
         Viewport viewport;
 
-
         Player MainPlayer;
+
+        World world;
 
         /// <summary>
         /// A concise explanation for Shreyas
@@ -45,6 +46,7 @@ namespace TileRealms
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            world = new World(1366, 768);
         }
 
         protected override void Initialize()
@@ -79,6 +81,7 @@ namespace TileRealms
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+            world.Draw(spriteBatch, 0, 0, 1366, 768);
             MainPlayer.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);

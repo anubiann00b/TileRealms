@@ -11,7 +11,7 @@ namespace TileRealms
 {
     class Tile
     {
-        public static Tile TILE_GRASS = new Tile("tile_grass");
+        public static Tile TILE_GRASS = new Tile("Random_warrior");
 
         private static Rectangle srcRect = new Rectangle(0, 0, 16, 16);
         private String file;
