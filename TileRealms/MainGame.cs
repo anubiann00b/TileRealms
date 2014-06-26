@@ -59,6 +59,7 @@ namespace TileRealms
 
         protected override void LoadContent()
         {
+            Tile.LoadTiles(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
             MainPlayer.LoadContent(Content);
         }

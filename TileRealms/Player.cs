@@ -35,9 +35,9 @@ namespace TileRealms
             srcRect = new Rectangle((int)frames.X, (int)frames.Y, 48, 48);
         }
 
-        public void LoadContent(ContentManager Content)
+        public void LoadContent(ContentManager content)
         {
-            texture = Content.Load<Texture2D>("Random_warrior");
+            texture = content.Load<Texture2D>("Random_warrior");
         }
 
         public void UnloadContent()
