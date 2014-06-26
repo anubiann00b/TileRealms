@@ -14,7 +14,6 @@ namespace TileRealms
         public static Tile TILE_GRASS = new Tile("grass_basic");
 
         private static Rectangle srcRect = new Rectangle(0, 0, 16, 16);
-        private static Rectangle destRect = new Rectangle(0, 0, 64, 64);
         private String file;
         private Texture2D texture;
 
