@@ -17,8 +17,8 @@ namespace TileRealms
         Rectangle destRect;
         Rectangle srcRect;
         Vector2 frames;
-        Vector2 location;
-        int size;
+        public Vector2 location;
+        public int size;
 
         public void Initialize(Viewport _vp)
         {
@@ -50,19 +50,19 @@ namespace TileRealms
 
             if (state.IsKeyDown(Keys.W))
             {
-                location.Y--;
+                location.Y -= 10;
             }
             if (state.IsKeyDown(Keys.S))
             {
-                location.Y++;
+                location.Y += 10;
             }
             if (state.IsKeyDown(Keys.A))
             {
-                location.X--;
+                location.X -= 10;
             }
             if (state.IsKeyDown(Keys.D))
             {
-                location.X++;
+                location.X += 10;
             }
         }
 

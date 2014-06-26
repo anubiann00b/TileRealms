@@ -13,11 +13,14 @@ namespace TileRealms
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Viewport viewport;
-        Player MainPlayer;
+        Player player;
 
         World world;
 
         Vector2 camera;
+        Vector2 worldSize;
+
+
         /// <summary>
         /// A concise explanation for Shreyas
         /// 
@@ -47,15 +50,16 @@ namespace TileRealms
             camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            world = new World(1366, 768);
+            worldSize = new Vector2(6400,6400);
+            world = new World(worldSize);
         }
 
         protected override void Initialize()
         {
             viewport = GraphicsDevice.Viewport;
 
-            MainPlayer = new Player();
-            MainPlayer.Initialize(viewport);
+            player = new Player();
+            player.Initialize(viewport);
 
             base.Initialize();
         }
@@ -64,7 +68,7 @@ namespace TileRealms
         {
             Tile.LoadTiles(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            MainPlayer.LoadContent(Content);
+            player.LoadContent(Content);
         }
 
         protected override void UnloadContent()
@@ -74,16 +78,25 @@ namespace TileRealms
 
         protected override void Update(GameTime gameTime)
         {
-            MainPlayer.Update(gameTime);
+            player.Update(gameTime);
+
+            camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
+            camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);
+            
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
-            world.Draw(spriteBatch, 0, 0, 1366, 768);
-            MainPlayer.Draw(spriteBatch);
+            GraphicsDevice.Clear(Color.Black);
+
+            Vector2 translation = new Vector2(viewport.Width / 2 - camera.X, viewport.Height / 2 - camera.Y);
+            Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0);
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
+                    RasterizerState.CullCounterClockwise, null, cameraMatrix);
+            world.Draw(spriteBatch, (int)translation.X, (int)translation.Y, viewport.Width, viewport.Height);
+            player.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
