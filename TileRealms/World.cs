@@ -28,9 +28,9 @@ namespace TileRealms
 
         public void Draw(SpriteBatch spriteBatch, int camX, int camY, int screenWidth, int screenHeight)
         {
-            for (int i = camX / 64; i < (camX + screenWidth) / 64; i++)
+            for (int i = camX / 64; i < (camX + screenWidth) / 64 + 1; i++)
             {
-                for (int j = camY / 64; j < (camY + screenHeight) / 64; j++)
+                for (int j = camY / 64; j < (camY + screenHeight) / 64 + 1; j++)
                 {
                     map[i, j].Draw(spriteBatch, new Vector2(i * 64, j * 64));
                 }

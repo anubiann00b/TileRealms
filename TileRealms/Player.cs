@@ -12,11 +12,10 @@ namespace TileRealms
 {
     class Player
     {
-        //Class for the main player
         Viewport viewport;
         Texture2D texture;
         Rectangle destRect;
-        Rectangle srcRect; //48 x 48
+        Rectangle srcRect;
         Vector2 frames;
         Vector2 location;
         int size;

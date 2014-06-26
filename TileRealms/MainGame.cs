@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
@@ -13,11 +13,11 @@ namespace TileRealms
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Viewport viewport;
-
         Player MainPlayer;
 
         World world;
 
+        Vector2 camera;
         /// <summary>
         /// A concise explanation for Shreyas
         /// 
@@ -44,6 +44,7 @@ namespace TileRealms
         
         public MainGame()
         {
+            camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             world = new World(1366, 768);
