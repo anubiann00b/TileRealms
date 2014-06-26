@@ -136,10 +136,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="Content\Basic-spritesheet.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Content\Random_warrior.xnb" />
+    <Content Include="Content\Basic-spritesheet.xnb" />
+    <Content Include="Content\Random_warrior.xnb" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
