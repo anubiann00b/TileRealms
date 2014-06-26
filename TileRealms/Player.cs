@@ -28,7 +28,7 @@ namespace TileRealms
             if (viewport.Width > viewport.Height)
                 size = viewport.Height / 10;
             else
-                size = viewport.Height / 10;
+                size = viewport.Width / 10;
 
             frames = new Vector2(0, 0);
             destRect = new Rectangle((int)location.X, (int)location.Y, size, size);
