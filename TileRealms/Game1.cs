@@ -17,6 +17,9 @@ namespace TileRealms
         SpriteBatch spriteBatch; //Draw
         Viewport viewport; //The screen 
 
+
+        Player MainPlayer; //The Main Character
+
         /// <summary>
         /// A concise explanation for Shreyas
         /// 
@@ -57,7 +60,9 @@ namespace TileRealms
         {
             // TODO: Add your initialization logic here
             viewport = GraphicsDevice.Viewport; //Viewport is the screen resolution. You can get height / width properties.
-            
+
+            MainPlayer = new Player();
+            MainPlayer.Initialize(viewport);
 
             base.Initialize();
         }
@@ -72,7 +77,7 @@ namespace TileRealms
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            
+            MainPlayer.LoadContent(Content);
         }
 
         /// <summary>
@@ -92,7 +97,7 @@ namespace TileRealms
         protected override void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
-
+            MainPlayer.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -105,7 +110,9 @@ namespace TileRealms
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            MainPlayer.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

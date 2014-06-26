@@ -16,7 +16,7 @@ namespace TileRealms
         Texture2D texture;
         Rectangle destRect;
         Rectangle srcRect;
-        protected override void Initialize(Viewport _vp)
+        public void Initialize(Viewport _vp)
         {
             // TODO: Add your initialization logic here
             viewport = _vp; //Viewport is the screen resolution. You can get height / width properties.
@@ -26,7 +26,7 @@ namespace TileRealms
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
-        protected override void LoadContent(ContentManager Content)
+        public void LoadContent(ContentManager Content)
         {
             // TODO: use this.Content to load your game content here
             texture = Content.Load<Texture2D>("Content\\Basic-spritesheet");
@@ -36,7 +36,7 @@ namespace TileRealms
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
         /// </summary>
-        protected override void UnloadContent()
+        public void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
         }
@@ -46,7 +46,7 @@ namespace TileRealms
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
         }
@@ -55,7 +55,7 @@ namespace TileRealms
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
