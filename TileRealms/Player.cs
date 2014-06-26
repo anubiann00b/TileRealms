@@ -43,7 +43,7 @@ namespace TileRealms
         public void LoadContent(ContentManager Content)
         {
             // TODO: use this.Content to load your game content here
-            texture = Content.Load<Texture2D>("Basic-spritesheet");
+            texture = Content.Load<Texture2D>("Random_warrior");
         }
 
         /// <summary>
