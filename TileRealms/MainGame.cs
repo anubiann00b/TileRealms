@@ -50,7 +50,7 @@ namespace TileRealms
             camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            worldSize = new Vector2(6400,6400);
+            worldSize = new Vector2(1600,1600);
             world = new World(worldSize);
         }
 
@@ -95,7 +95,7 @@ namespace TileRealms
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
-            world.Draw(spriteBatch, (int)translation.X, (int)translation.Y, viewport.Width, viewport.Height);
+            world.Draw(spriteBatch, camera, viewport);
             player.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
