@@ -96,7 +96,7 @@ namespace TileRealms
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
             world.Draw(spriteBatch, camera, viewport);
-            player.Draw(spriteBatch);
+            player.Draw(spriteBatch, gameTime);
             spriteBatch.End();
             base.Draw(gameTime);
         }

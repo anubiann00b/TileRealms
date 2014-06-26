@@ -14,16 +14,12 @@ namespace TileRealms
         Animation[] animations;
         int currentAnim;
 
-        public Sprite(Animation[] anims)
+        public Sprite(String[] files, int frames, Vector2 newSize, int speed, ContentManager content)
         {
-            animations = anims;
-        }
-
-        public void LoadContent(ContentManager content)
-        {
-            foreach (Animation a in animations)
+            animations = new Animation[files.GetLength(0)];
+            for (int i = 0; i < files.GetLength(0); i++)
             {
-                a.LoadContent(content);
+                animations[i] = new Animation(files[i], frames, newSize, speed, content);
             }
         }
 
