@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace TileRealms
@@ -9,8 +14,33 @@ namespace TileRealms
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch; //Draw
+        Viewport viewport; //The screen 
 
+        /// <summary>
+        /// A concise explanation for Shreyas
+        /// 
+        /// SpriteBatch: Important
+        ///     - Mainly drawing items
+        ///     - To draw: spriteBatch.Draw(_Texture2D, Vector2, Color);
+        ///     - To draw: spriteBatch.Draw(_Texture2D, Rectangle, Color);
+        ///     - Those are basic drawing. You can specify source and destination also.
+        /// 
+        /// Texture2D: 2D Images to draw
+        ///     - Load it on Load method
+        ///     - Unload if Texture is unnecessary
+        /// Vector2: Important
+        ///     - Simple Coordinate variable
+        /// 
+        /// Rectangle
+        ///     - Basically Vector2 with Height + Width
+        ///     
+        /// Viewport
+        ///     = Screen
+        ///     
+        /// 
+        /// </summary>
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,6 +56,8 @@ namespace TileRealms
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            viewport = GraphicsDevice.Viewport; //Viewport is the screen resolution. You can get height / width properties.
+            
 
             base.Initialize();
         }
@@ -40,6 +72,7 @@ namespace TileRealms
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>
