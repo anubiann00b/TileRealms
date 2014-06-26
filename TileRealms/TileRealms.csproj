@@ -138,6 +138,13 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Content\Basic-spritesheet.xnb" />
+    <Content Include="Content\down.xnb" />
+    <Content Include="Content\grass_basic.xnb" />
+    <Content Include="Content\left.xnb" />
+    <Content Include="Content\Random_warrior.xnb" />
+    <Content Include="Content\right.xnb" />
+    <Content Include="Content\up.xnb" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +153,7 @@
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

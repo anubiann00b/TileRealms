@@ -11,9 +11,10 @@ namespace TileRealms
 {
     class Tile
     {
-        public static Tile TILE_GRASS = new Tile("Random_warrior");
+        public static Tile TILE_GRASS = new Tile("grass_basic");
 
         private static Rectangle srcRect = new Rectangle(0, 0, 16, 16);
+        private static Rectangle destRect = new Rectangle(0, 0, 64, 64);
         private String file;
         private Texture2D texture;
 
@@ -24,7 +25,7 @@ namespace TileRealms
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            spriteBatch.Draw(texture, location, srcRect, Color.White);
+            spriteBatch.Draw(texture, new Rectangle((int)location.X, (int)location.Y, 64, 64), srcRect, Color.White);
         }
 
         public static void LoadTiles(ContentManager content)

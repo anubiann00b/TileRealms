@@ -80,7 +80,7 @@ namespace TileRealms
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise);
             world.Draw(spriteBatch, 0, 0, 1366, 768);
             MainPlayer.Draw(spriteBatch);
             spriteBatch.End();
