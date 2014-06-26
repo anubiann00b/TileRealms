@@ -139,12 +139,12 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Content\Basic-spritesheet.xnb" />
-    <Content Include="Content\down.xnb" />
     <Content Include="Content\grass_basic.xnb" />
-    <Content Include="Content\left.xnb" />
     <Content Include="Content\Random_warrior.xnb" />
-    <Content Include="Content\right.xnb" />
-    <Content Include="Content\up.xnb" />
+    <Content Include="Content\player_down.xnb" />
+    <Content Include="Content\player_left.xnb" />
+    <Content Include="Content\player_right.xnb" />
+    <Content Include="Content\player_up.xnb" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
