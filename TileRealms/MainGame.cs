@@ -20,6 +20,7 @@ namespace TileRealms
         Vector2 camera;
         Vector2 worldSize;
 
+        Enemy testingEnemyBehavior = new Enemy();
 
         /// <summary>
         /// A concise explanation for Shreyas
@@ -78,11 +79,15 @@ namespace TileRealms
 
         protected override void Update(GameTime gameTime)
         {
-            player.Update(gameTime);
+            
 
             camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);
-            
+
+            player.location = testingEnemyBehavior.BehaviorUpdate();
+
+            player.Update(gameTime);
+
             base.Update(gameTime);
         }
 
