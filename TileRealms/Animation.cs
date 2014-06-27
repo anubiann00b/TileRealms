@@ -49,6 +49,7 @@ namespace TileRealms
 
             destRect.X = (int)location.X;
             destRect.Y = (int)location.Y;
+            srcRect.X = currentFrame * 16;
 
             spriteBatch.Draw(texture, destRect, srcRect, Color.White);
         }
