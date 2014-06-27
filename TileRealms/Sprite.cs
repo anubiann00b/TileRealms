@@ -12,10 +12,11 @@ namespace TileRealms
     class Sprite
     {
         Animation[] animations;
-        int currentAnim;
+        int currentDir;
 
         public Sprite(String[] files, int frames, Vector2 newSize, int speed, ContentManager content)
         {
+            currentDir = 0;
             animations = new Animation[files.GetLength(0)];
             for (int i = 0; i < files.GetLength(0); i++)
             {
@@ -25,7 +26,27 @@ namespace TileRealms
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 location)
         {
-            animations[currentAnim].Draw(spriteBatch, gameTime, location);
+            animations[currentDir].Draw(spriteBatch, gameTime, location);
+        }
+
+        public void SetCurrentDirection(int dir)
+        {
+            currentDir = dir;
+        }
+
+        public void Stop(int i)
+        {
+            animations[i].Stop();
+        }
+
+        public void Start(int i)
+        {
+            animations[i].Start();
+        }
+
+        public void SetCurrentFrame(int i, int frame)
+        {
+            animations[i].SetCurrentFrame(frame);
         }
     }
 }

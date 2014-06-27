@@ -33,6 +33,7 @@ namespace TileRealms
         /// Texture2D: 2D Images to draw
         ///     - Load it on Load method
         ///     - Unload if Texture is unnecessary
+        ///     
         /// Vector2: Important
         ///     - Simple Coordinate variable
         /// 
@@ -41,7 +42,6 @@ namespace TileRealms
         ///     
         /// Viewport
         ///     = Screen
-        ///     
         /// 
         /// </summary>
         

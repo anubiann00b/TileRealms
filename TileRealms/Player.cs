@@ -16,6 +16,10 @@ namespace TileRealms
         Sprite sprite;
         public Vector2 location;
 
+        KeyboardState oldState;
+        int direction;
+        int speed = 8;
+
         public void Initialize(Viewport vp)
         {
             viewport = vp;
@@ -35,22 +39,54 @@ namespace TileRealms
         {
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.W))
+            if (oldState == null)
+                oldState = state;
+
+            bool[] pr = new bool[4];
+            bool[] hl = new bool[4];
+
+            pr[1] = state.IsKeyDown(Keys.W) && !oldState.IsKeyDown(Keys.W);
+            pr[2] = state.IsKeyDown(Keys.A) && !oldState.IsKeyDown(Keys.A);
+            pr[0] = state.IsKeyDown(Keys.D) && !oldState.IsKeyDown(Keys.D);
+            pr[3] = state.IsKeyDown(Keys.S) && !oldState.IsKeyDown(Keys.S);
+
+            hl[0] = state.IsKeyDown(Keys.D);
+            hl[1] = state.IsKeyDown(Keys.W);
+            hl[2] = state.IsKeyDown(Keys.A);
+            hl[3] = state.IsKeyDown(Keys.S);
+
+            for (int i = 0; i < 2; i++)
             {
-                location.Y -= 10;
+                if ((hl[i] || pr[i]) && (hl[i + 2] || pr[i + 2]))
+                {
+                    hl[i] = false;
+                    hl[i + 2] = false;
+                }
             }
-            if (state.IsKeyDown(Keys.S))
+
+            int dx = 0;
+            int dy = 0;
+
+            for (int i = 0; i < 4; i++)
             {
-                location.Y += 10;
+                if (pr[i])
+                    sprite.SetCurrentDirection(i);
+                else
+                    sprite.Stop(i);
+                if (hl[i])
+                {
+                    sprite.Start(i);
+                    dx += i % 2 == 0 ? 1 - i : 0;
+                    dy += i % 2 == 1 ? i - 2 : 0;
+                    if (!hl[(i + 1) % 4] && !hl[(i + 2) % 4] && !hl[(i + 3) % 4])
+                        sprite.SetCurrentDirection(i);
+                }
+                else
+                    sprite.SetCurrentFrame(i,1);
             }
-            if (state.IsKeyDown(Keys.A))
-            {
-                location.X -= 10;
-            }
-            if (state.IsKeyDown(Keys.D))
-            {
-                location.X += 10;
-            }
+
+            location.X += dx * speed;
+            location.Y += dy * speed;
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime time)

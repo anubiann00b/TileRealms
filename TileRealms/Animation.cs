@@ -21,6 +21,7 @@ namespace TileRealms
 
         Vector2 size;
         float timer = 0f;
+        bool stopped = false;
 
         public Animation(String file, int frames, Vector2 newSize, int speed, ContentManager content)
         {
@@ -37,14 +38,15 @@ namespace TileRealms
         
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 location)
         {
-            timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (!stopped)
+                timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer > 200)
             {
                 currentFrame++;
                 if (currentFrame >= numFrames)
                     currentFrame = 0;
-                timer = 0f;
+                timer = 0;
             }
 
             destRect.X = (int)location.X;
@@ -52,6 +54,23 @@ namespace TileRealms
             srcRect.X = currentFrame * 16;
 
             spriteBatch.Draw(texture, destRect, srcRect, Color.White);
+        }
+
+        public void Stop()
+        {
+            stopped = true;
+            timer = 0;
+        }
+
+        public void Start()
+        {
+            stopped = false;
+            //timer = 0;
+        }
+
+        public void SetCurrentFrame(int frame)
+        {
+            currentFrame = frame;
         }
     }
 }
