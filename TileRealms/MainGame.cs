@@ -84,7 +84,7 @@ namespace TileRealms
             camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);
 
-            player.location = testingEnemyBehavior.BehaviorUpdate();
+            //player.location = testingEnemyBehavior.BehaviorUpdate();
 
             player.Update(gameTime);
 

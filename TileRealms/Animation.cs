@@ -41,7 +41,7 @@ namespace TileRealms
             if (!stopped)
                 timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 200)
+            if (timer > 100)
             {
                 currentFrame++;
                 if (currentFrame >= numFrames)
