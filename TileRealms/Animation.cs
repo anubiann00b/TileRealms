@@ -22,9 +22,11 @@ namespace TileRealms
         Vector2 size;
         float timer = 0f;
         bool stopped = false;
+        int duration;
 
         public Animation(String file, int frames, Vector2 newSize, int speed, ContentManager content)
         {
+            duration = speed;
             fileName = file;
 
             texture = content.Load<Texture2D>(fileName);
@@ -41,7 +43,7 @@ namespace TileRealms
             if (!stopped)
                 timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if (timer > 100)
+            if (timer > duration)
             {
                 currentFrame++;
                 if (currentFrame >= numFrames)
