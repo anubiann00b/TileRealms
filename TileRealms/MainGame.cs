@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq; 
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
@@ -45,13 +45,13 @@ namespace TileRealms
         ///     = Screen
         /// 
         /// </summary>
-        
+
         public MainGame()
         {
             camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            worldSize = new Vector2(1600,1600);
+            worldSize = new Vector2(1600, 1600);
             world = new World(worldSize);
         }
 
@@ -74,12 +74,12 @@ namespace TileRealms
 
         protected override void UnloadContent()
         {
-            
+
         }
 
         protected override void Update(GameTime gameTime)
         {
-            
+
 
             camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);

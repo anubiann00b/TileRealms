@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq; 
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
@@ -32,10 +32,10 @@ namespace TileRealms
             size = newSize;
             numFrames = frames;
 
-            srcRect = new Rectangle(frames*16, 0, (int)size.X, (int)size.Y);
+            srcRect = new Rectangle(frames * 16, 0, (int)size.X, (int)size.Y);
             destRect = new Rectangle(0, 0, (int)(size.X * 4), (int)(size.Y * 4));
         }
-        
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 location)
         {
             if (!stopped)

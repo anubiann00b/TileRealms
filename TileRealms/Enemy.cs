@@ -31,28 +31,28 @@ namespace TileRealms
         {
             if (r.Next(0, 1) < 0.01) //so the enemy doesn't go running around
             {
-               if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
-               {
+                if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
+                {
                     location.X -= 1;
-               }
+                }
 
-               else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
-               {
-                   location.X += 1;
-               }
+                else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
+                {
+                    location.X += 1;
+                }
             }
 
             else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
             {
-               if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
-               {
+                if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
+                {
                     location.Y -= 1;
-               }
+                }
 
-               else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
-               {
-                   location.Y += 1;
-               }
+                else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
+                {
+                    location.Y += 1;
+                }
             }
 
 

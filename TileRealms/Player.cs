@@ -32,7 +32,7 @@ namespace TileRealms
 
         public void UnloadContent()
         {
-            
+
         }
 
         public void Update(GameTime gameTime)
@@ -82,7 +82,7 @@ namespace TileRealms
                         sprite.SetCurrentDirection(i);
                 }
                 else
-                    sprite.SetCurrentFrame(i,1);
+                    sprite.SetCurrentFrame(i, 1);
             }
 
             location.X += dx * speed;
