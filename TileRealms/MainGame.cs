@@ -20,31 +20,7 @@ namespace TileRealms
         Vector2 camera;
         Vector2 worldSize;
 
-        Enemy testingEnemyBehavior = new Enemy();
-
-        /// <summary>
-        /// A concise explanation for Shreyas
-        /// 
-        /// SpriteBatch: Important
-        ///     - Mainly drawing items
-        ///     - To draw: spriteBatch.Draw(_Texture2D, Vector2, Color);
-        ///     - To draw: spriteBatch.Draw(_Texture2D, Rectangle, Color);
-        ///     - Those are basic drawing. You can specify source and destination also.
-        /// 
-        /// Texture2D: 2D Images to draw
-        ///     - Load it on Load method
-        ///     - Unload if Texture is unnecessary
-        ///     
-        /// Vector2: Important
-        ///     - Simple Coordinate variable
-        /// 
-        /// Rectangle
-        ///     - Basically Vector2 with Height + Width
-        ///     
-        /// Viewport
-        ///     = Screen
-        /// 
-        /// </summary>
+        private List<Enemy> enemies;
 
         public MainGame()
         {
@@ -53,6 +29,7 @@ namespace TileRealms
             Content.RootDirectory = "Content";
             worldSize = new Vector2(1600, 1600);
             world = new World(worldSize);
+            enemies = new List<Enemy>();
         }
 
         protected override void Initialize()
@@ -62,6 +39,10 @@ namespace TileRealms
             player = new Player();
             player.Initialize(viewport);
 
+            Enemy e = new Enemy();
+            e.Initialize(new RandomWalk());
+            enemies.Add(e);
+
             base.Initialize();
         }
 
@@ -70,6 +51,11 @@ namespace TileRealms
             Tile.LoadTiles(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player.LoadContent(Content);
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                Enemy e = enemies.ElementAt(i);
+                e.LoadContent(Content);
+            }
         }
 
         protected override void UnloadContent()
@@ -79,14 +65,16 @@ namespace TileRealms
 
         protected override void Update(GameTime gameTime)
         {
-
-
             camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);
 
-            //player.location = testingEnemyBehavior.BehaviorUpdate();
-
             player.Update(gameTime);
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                Enemy e = enemies.ElementAt(i);
+                e.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -101,6 +89,13 @@ namespace TileRealms
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
             world.Draw(spriteBatch, camera, viewport);
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                Enemy e = enemies.ElementAt(i);
+                e.Draw(spriteBatch, gameTime);
+            }
+
             player.Draw(spriteBatch, gameTime);
             spriteBatch.End();
             base.Draw(gameTime);

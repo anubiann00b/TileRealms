@@ -12,52 +12,23 @@ namespace TileRealms
 {
     class Enemy
     {
-        Viewport viewport;
-        Sprite sprite;
+        public Sprite sprite;
         public Vector2 location;
-        Vector2 destination;
-        Vector2 difference;
-        Random r = new Random();
-        int size = 64;
-        int direction;
-        int speed = 8;
+        EnemyController controller;
 
-        public void Initialize(Viewport vp)
+        public void Initialize(EnemyController e)
         {
-            r = new Random();
+            controller = e;
         }
 
-        public Vector2 BehaviorUpdate()
+        public void LoadContent(ContentManager content)
         {
-            if (r.Next(0, 1) < 0.01) //so the enemy doesn't go running around
-            {
-                if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
-                {
-                    location.X -= 1;
-                }
+            sprite = new Sprite(new String[] { "player_right", "player_up", "player_left", "player_down" }, 4, new Vector2(16, 16), 166, content);
+        }
 
-                else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
-                {
-                    location.X += 1;
-                }
-            }
-
-            else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
-            {
-                if (r.Next(0, 1) < 0.1) //so the enemy doesn't go running around
-                {
-                    location.Y -= 1;
-                }
-
-                else if (r.Next(0, 1) > 0.9) //so the enemy doesn't go running around
-                {
-                    location.Y += 1;
-                }
-            }
-
-
-            //THIS IS VERY CRAPPY BUT DON'T TOUCH IT SHREYAS I GOT THIS
-            return location;
+        public void Update(GameTime time)
+        {
+            controller.Update(this,time);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime time)
