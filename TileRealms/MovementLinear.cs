@@ -18,9 +18,10 @@ namespace TileRealms
             speed = spd;
         }
 
-        public override void Update(Projectile p, GameTime time)
+        public override void Update(Projectile p, double time)
         {
-
+            p.location.X += (int)(speed * Math.Cos(Math.PI * direction / 180));
+            p.location.X += (int)(speed * Math.Sin(Math.PI * direction / 180));
         }
     }
 }

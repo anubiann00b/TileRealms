@@ -9,6 +9,6 @@ namespace TileRealms
 {
     abstract class MovementPattern
     {
-        public abstract void Update(Projectile p, GameTime time);
+        public abstract void Update(Projectile p, double time);
     }
 }

@@ -34,7 +34,7 @@ namespace TileRealms
 
         }
 
-        public void Update(double time)
+        public void Update(double time, List<Projectile> projectiles)
         {
             KeyboardState state = Keyboard.GetState();
 

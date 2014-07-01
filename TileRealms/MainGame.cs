@@ -21,6 +21,7 @@ namespace TileRealms
         Vector2 worldSize;
 
         List<Enemy> enemies;
+        List<Projectile> projectiles;
 
         public MainGame()
         {
@@ -30,6 +31,7 @@ namespace TileRealms
             worldSize = new Vector2(1600, 1600);
             world = new World(worldSize);
             enemies = new List<Enemy>();
+            projectiles = new List<Projectile>();
         }
 
         protected override void Initialize()
@@ -70,7 +72,7 @@ namespace TileRealms
 
             double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
 
-            player.Update(frameTime);
+            player.Update(frameTime, projectiles);
 
             for (int i = 0; i < enemies.Count; i++)
             {
