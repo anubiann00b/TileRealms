@@ -27,7 +27,7 @@ namespace TileRealms
 
         public void LoadContent(ContentManager content)
         {
-            sprite = new Animation("player_right", 4, new Vector2(16, 16), 166, content);
+            sprite = new Animation("player_right", 4, new Vector2(16, 9), 166, content);
         }
 
         public void Update(double time)
