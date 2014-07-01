@@ -15,9 +15,13 @@ namespace TileRealms
         Animation sprite;
         MovementPattern pattern;
 
-        public Projectile(Vector2 loc, MovementPattern pat)
+        public Projectile(Vector2 loc)
         {
             location = loc;
+        }
+
+        public void Initialize(MovementPattern pat)
+        {
             pattern = pat;
         }
 

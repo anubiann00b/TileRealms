@@ -45,6 +45,10 @@ namespace TileRealms
             e.Initialize(new RandomWalk());
             enemies.Add(e);
 
+            Projectile p = new Projectile(new Vector2(0,0));
+            p.Initialize(new MovementLinear(245,1));
+            projectiles.Add(p);
+
             base.Initialize();
         }
 
@@ -57,6 +61,11 @@ namespace TileRealms
             {
                 Enemy e = enemies.ElementAt(i);
                 e.LoadContent(Content);
+            }
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                Projectile p = projectiles.ElementAt(i);
+                p.LoadContent(Content);
             }
         }
 
@@ -79,7 +88,11 @@ namespace TileRealms
                 Enemy e = enemies.ElementAt(i);
                 e.Update(frameTime);
             }
-
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                Projectile p = projectiles.ElementAt(i);
+                p.Update(frameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -100,6 +113,11 @@ namespace TileRealms
             {
                 Enemy e = enemies.ElementAt(i);
                 e.Draw(spriteBatch, frameTime);
+            }
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                Projectile p = projectiles.ElementAt(i);
+                p.Draw(spriteBatch, frameTime);
             }
 
             player.Draw(spriteBatch, frameTime);

@@ -20,8 +20,8 @@ namespace TileRealms
 
         public override void Update(Projectile p, double time)
         {
-            p.location.X += (int)(speed * Math.Cos(Math.PI * direction / 180));
-            p.location.X += (int)(speed * Math.Sin(Math.PI * direction / 180));
+            p.location.X += (float)(speed * Math.Cos(Math.PI * direction / 180));
+            p.location.Y += (float)(speed * Math.Sin(Math.PI * direction / 180));
         }
     }
 }
