@@ -24,7 +24,7 @@ namespace TileRealms
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, double gameTime, Vector2 location)
         {
             animations[currentDir].Draw(spriteBatch, gameTime, location);
         }

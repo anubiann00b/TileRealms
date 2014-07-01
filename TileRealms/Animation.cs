@@ -20,7 +20,7 @@ namespace TileRealms
         Rectangle srcRect;
 
         Vector2 size;
-        float timer = 0f;
+        double timer = 0;
         bool stopped = false;
         int duration;
 
@@ -38,10 +38,10 @@ namespace TileRealms
             destRect = new Rectangle(0, 0, (int)(size.X * 4), (int)(size.Y * 4));
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, double gameTime, Vector2 location)
         {
             if (!stopped)
-                timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                timer += gameTime * 1000 / 60;
 
             if (timer > duration)
             {

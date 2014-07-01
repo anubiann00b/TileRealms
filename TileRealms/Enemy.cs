@@ -26,12 +26,12 @@ namespace TileRealms
             sprite = new Sprite(new String[] { "player_right", "player_up", "player_left", "player_down" }, 4, new Vector2(16, 16), 166, content);
         }
 
-        public void Update(GameTime time)
+        public void Update(double time)
         {
             controller.Update(this,time);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime time)
+        public void Draw(SpriteBatch spriteBatch, double time)
         {
             sprite.Draw(spriteBatch, time, location);
         }

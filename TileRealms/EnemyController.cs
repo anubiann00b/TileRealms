@@ -9,15 +9,14 @@ namespace TileRealms
 {
     abstract class EnemyController
     {
-        public abstract void Update(Enemy e, GameTime time);
+        public abstract void Update(Enemy e, double time);
 
-        public void UpdatePosition(int dir, int speed, GameTime time, Enemy e)
+        public void UpdatePosition(int dir, int speed, double time, Enemy e)
         {
-            speed *= (int)(time.ElapsedGameTime.Milliseconds/16.0);
             if (dir % 2 == 0)
-                e.location.X -= (dir - 1)*speed;
+                e.location.X -= (int)((dir - 1) * speed * time);
             if (dir % 2 == 1)
-                e.location.Y += (dir - 2)*speed;
+                e.location.Y += (int)((dir - 2) * speed * time);
         }
     }
 }

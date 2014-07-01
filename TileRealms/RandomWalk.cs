@@ -18,7 +18,7 @@ namespace TileRealms
             direction = r.Next(4); // 0 through 3.
         }
 
-        public override void Update(Enemy e, GameTime time)
+        public override void Update(Enemy e, double time)
         {
             if (r.Next(10) == 0)
             {

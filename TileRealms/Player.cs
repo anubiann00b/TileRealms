@@ -34,7 +34,7 @@ namespace TileRealms
 
         }
 
-        public void Update(GameTime time)
+        public void Update(double time)
         {
             KeyboardState state = Keyboard.GetState();
 
@@ -84,11 +84,11 @@ namespace TileRealms
                     sprite.SetCurrentFrame(i, 1);
             }
 
-            location.X += dx * speed * (int)(time.ElapsedGameTime.Milliseconds / 16.0);
-            location.Y += dy * speed * (int)(time.ElapsedGameTime.Milliseconds / 16.0);
+            location.X += (int)(dx * speed * time);
+            location.Y += (int)(dy * speed * time);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime time)
+        public void Draw(SpriteBatch spriteBatch, double time)
         {
             sprite.Draw(spriteBatch, time, location);
         }

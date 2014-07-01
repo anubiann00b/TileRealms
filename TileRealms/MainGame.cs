@@ -68,12 +68,14 @@ namespace TileRealms
             camera.X = MathHelper.Clamp(player.location.X, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y, 0, worldSize.Y - viewport.Height);
 
-            player.Update(gameTime);
+            double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
+
+            player.Update(frameTime);
 
             for (int i = 0; i < enemies.Count; i++)
             {
                 Enemy e = enemies.ElementAt(i);
-                e.Update(gameTime);
+                e.Update(frameTime);
             }
 
             base.Update(gameTime);
@@ -90,13 +92,15 @@ namespace TileRealms
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
             world.Draw(spriteBatch, camera, viewport);
 
+            double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
+
             for (int i = 0; i < enemies.Count; i++)
             {
                 Enemy e = enemies.ElementAt(i);
-                e.Draw(spriteBatch, gameTime);
+                e.Draw(spriteBatch, frameTime);
             }
 
-            player.Draw(spriteBatch, gameTime);
+            player.Draw(spriteBatch, frameTime);
             spriteBatch.End();
             base.Draw(gameTime);
         }
