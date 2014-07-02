@@ -31,9 +31,9 @@ namespace TileRealms
 
         public void UnloadContent()
         {
-
+        
         }
-
+       
         public void Update(double time, List<Projectile> projectiles)
         {
             KeyboardState state = Keyboard.GetState();
@@ -44,9 +44,9 @@ namespace TileRealms
             bool[] pr = new bool[4];
             bool[] hl = new bool[4];
 
+            pr[0] = state.IsKeyDown(Keys.D) && !oldState.IsKeyDown(Keys.D);
             pr[1] = state.IsKeyDown(Keys.W) && !oldState.IsKeyDown(Keys.W);
             pr[2] = state.IsKeyDown(Keys.A) && !oldState.IsKeyDown(Keys.A);
-            pr[0] = state.IsKeyDown(Keys.D) && !oldState.IsKeyDown(Keys.D);
             pr[3] = state.IsKeyDown(Keys.S) && !oldState.IsKeyDown(Keys.S);
 
             hl[0] = state.IsKeyDown(Keys.D);
@@ -84,6 +84,7 @@ namespace TileRealms
                     sprite.SetCurrentFrame(i, 1);
             }
 
+            //location.X += 1;
             location.X += (int)(dx * speed * time);
             location.Y += (int)(dy * speed * time);
         }
