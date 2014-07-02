@@ -20,7 +20,7 @@ namespace TileRealms
 
         public override void Update(Enemy e, double time)
         {
-            if (r.Next(15) == 0)
+            if (r.Next(45) == 0)
             {
                 e.sprite.Stop(direction);
                 direction = r.Next(4);
