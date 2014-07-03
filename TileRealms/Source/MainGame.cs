@@ -45,7 +45,7 @@ namespace TileRealms
             player.Initialize(viewport);
 
             Enemy e = new Enemy();
-            e.Initialize(new RandomWalk());
+            e.Initialize(new RandomWalk(), new Vector2(0,0));
             enemies.Add(e);
 
             Projectile p = new Projectile(new Vector2(0,0));
@@ -86,7 +86,7 @@ namespace TileRealms
 
             player.Update(frameTime, projectiles);
 
-            if ((r.Next(100)) == 0) && enemies.Count < 1000)
+            if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
                 Enemy e = new Enemy();
                 e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
