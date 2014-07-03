@@ -14,6 +14,7 @@ namespace TileRealms
     {
         public Sprite sprite;
         public Vector2 location;
+        public double health;
         EnemyController controller;
 
         public void Initialize(EnemyController e, Vector2 _location)
