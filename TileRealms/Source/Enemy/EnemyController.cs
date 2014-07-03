@@ -26,12 +26,11 @@ namespace TileRealms
 
         public void UpdatePosition(int dir, int speed, double time, Enemy e)
         {
-            //Direction
-            //1 -> Up
-            //2 -> Left
-            //3 -> Down
-            //4 -> Right
-            //Something like that
+            // Directions are basically radians. Start right, CCW.
+            // 0 -> Right
+            // 1 -> Up
+            // 2 -> Left
+            // 3 -> Down
 
             if (dir % 2 == 0)
                 e.location.X -= (int)((dir - 1) * speed * time);
