@@ -48,11 +48,7 @@ namespace TileRealms
             player.Initialize(viewport);
 
             Enemy e = new Enemy();
-<<<<<<< HEAD
             e.Initialize(new RandomWalk(), new Vector2(0, 0));
-=======
-            e.Initialize(new RandomWalk(), new Vector2(0,0));
->>>>>>> cab52137d5f384ebf5492ace2eafa310ee344497
             enemies.Add(e);
 
             Projectile p = new Projectile(new Vector2(0,0));
