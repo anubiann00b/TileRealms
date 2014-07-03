@@ -102,7 +102,7 @@ namespace TileRealms
                 if (ttime > 300)
                 {
                     Projectile p = new Projectile(player.location);
-                    System.Diagnostics.Debug.WriteLine(mouseState.X + " " + mouseState.Y));
+                    System.Diagnostics.Debug.WriteLine(mouseState.X + " " + mouseState.Y);
                     double dir = Math.Atan2(viewport.Width / 2 - mouseState.Y, viewport.Height / 2 - mouseState.X);
                     p.Initialize(new MovementLinear(dir, 5));
                     projectiles.Add(p);
