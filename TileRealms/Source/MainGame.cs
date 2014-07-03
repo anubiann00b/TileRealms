@@ -115,6 +115,7 @@ namespace TileRealms
             Vector2 translation = new Vector2(viewport.Width / 2 - camera.X, viewport.Height / 2 - camera.Y);
             Matrix cameraMatrix = Matrix.CreateTranslation(translation.X, translation.Y, 0);
 
+            //draws sprite to game
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
             world.Draw(spriteBatch, camera, viewport);

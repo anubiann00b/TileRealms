@@ -20,6 +20,7 @@ namespace TileRealms
             {
                 for (int j = 0; j < (int)(worldSize.Y / 64); j++)
                 {
+                    //change this line to create biomes
                     map[i, j] = Tile.TILE_GRASS;
                 }
             }
