@@ -24,7 +24,6 @@ namespace TileRealms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         EnemyController spawner;
-        Random r;
 
         public MainGame()
         {
@@ -89,17 +88,10 @@ namespace TileRealms
 
             player.Update(frameTime, projectiles);
 
-<<<<<<< HEAD
-            if (r.Next(1000) == 0)
-            {
-                Enemy e = new Enemy();
-                e.Initialize(new RandomWalk(), new Vector2(0, 0));
-=======
             if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
                 Enemy e = new Enemy();
                 e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
->>>>>>> cab52137d5f384ebf5492ace2eafa310ee344497
                 enemies.Add(e);
             }
 
