@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics.Tracing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +23,21 @@ namespace TileRealms
         Vector2 camera;
         Vector2 worldSize;
 
+        Texture2D mouseTexture;
+        Vector2 mouseLocation;
+
         List<Enemy> enemies;
         List<Projectile> projectiles;
         EnemyController spawner;
+
+        double ttime;
 
         public MainGame()
         {
             camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            worldSize = new Vector2(1600, 1600);
+            worldSize = new Vector2(3600, 3600);
             world = new World(worldSize);
             enemies = new List<Enemy>();
             projectiles = new List<Projectile>();
@@ -39,6 +46,8 @@ namespace TileRealms
 
         protected override void Initialize()
         {
+            this.IsMouseVisible = true;
+
             TextureLibrary.LoadLibraryContent(Content);
 
             r = new Random();
@@ -56,6 +65,8 @@ namespace TileRealms
             p.Initialize(new MovementLinear(245,1));
             projectiles.Add(p);
 
+            ttime = 0f;
+
             base.Initialize();
         }
 
@@ -63,6 +74,8 @@ namespace TileRealms
         {
             Tile.LoadTiles(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            mouseTexture = Content.Load<Texture2D>("Random_warrior");
             
         }
 
@@ -79,6 +92,28 @@ namespace TileRealms
             double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
 
             player.Update(frameTime, projectiles);
+
+            //PROJECTILE SYSTEM
+            MouseState mouseState = Mouse.GetState();
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                ttime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                if (ttime > 300)
+                {
+                    Projectile p = new Projectile(player.location);
+                    System.Diagnostics.Debug.WriteLine(mouseState.X + " " + mouseState.Y));
+                    double dir = Math.Atan2(viewport.Width / 2 - mouseState.Y, viewport.Height / 2 - mouseState.X);
+                    p.Initialize(new MovementLinear(dir, 5));
+                    projectiles.Add(p);
+                    ttime = 0;
+                }
+
+            }
+
+            else if (mouseState.LeftButton == ButtonState.Released)
+            { ttime = 300; }
+            //PROJECTILE SYSTEM
 
             if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
@@ -110,6 +145,8 @@ namespace TileRealms
             //draws sprite to game
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None,
                     RasterizerState.CullCounterClockwise, null, cameraMatrix);
+            spriteBatch.Draw(mouseTexture, mouseLocation, Color.White);
+
             world.Draw(spriteBatch, camera, viewport);
 
             double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;

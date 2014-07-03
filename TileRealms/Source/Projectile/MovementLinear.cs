@@ -9,10 +9,10 @@ namespace TileRealms
 {
     class MovementLinear : MovementPattern
     {
-        int direction;
+        double direction;
         int speed;
 
-        public MovementLinear(int dir, int spd)
+        public MovementLinear(double dir, int spd)
         {
             direction = dir;
             speed = spd;
@@ -20,8 +20,8 @@ namespace TileRealms
 
         public override void Update(Projectile p, double time)
         {
-            p.location.X += (float)(speed * Math.Cos(Math.PI * direction / 180));
-            p.location.Y += (float)(speed * Math.Sin(Math.PI * direction / 180));
+            p.location.X += (float)(speed * Math.Cos(direction));
+            p.location.Y += (float)(speed * Math.Sin(direction));
         }
     }
 }

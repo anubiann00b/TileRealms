@@ -172,6 +172,9 @@
     <Content Include="Content\mutant_left.xnb" />
     <Content Include="Content\mutant_right.xnb" />
     <Content Include="Content\mutant_up.xnb" />
+    <Content Include="Content\red.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
