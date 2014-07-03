@@ -98,8 +98,8 @@ namespace TileRealms
                 if (ttime > 300)
                 {
                     Projectile p = new Projectile(player.location);
-                    int dx = (int)(mouseState.X - (player.location.X - camera.X));
-                    int dy = (int)(mouseState.Y - (player.location.Y - camera.Y));
+                    int dx = (int)(mouseState.X - (player.location.X - camera.X + 32));
+                    int dy = (int)(mouseState.Y - (player.location.Y - camera.Y + 32));
                     double dir = Math.Atan2(dy, dx);
                     p.Initialize(new MovementLinear(dir, 10));
                     projectiles.Add(p);
