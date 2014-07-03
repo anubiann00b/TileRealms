@@ -14,6 +14,7 @@ namespace TileRealms
         SpriteBatch spriteBatch;
         Viewport viewport;
         Player player;
+        Random r;
 
         World world;
 
@@ -39,13 +40,15 @@ namespace TileRealms
 
         protected override void Initialize()
         {
+            r = new Random();
+
             viewport = GraphicsDevice.Viewport;
 
             player = new Player();
             player.Initialize(viewport);
 
             Enemy e = new Enemy();
-            e.Initialize(new RandomWalk(), new Vector2(0,0));
+            e.Initialize(new RandomWalk(), new Vector2(0, 0));
             enemies.Add(e);
 
             Projectile p = new Projectile(new Vector2(0,0));
@@ -86,10 +89,17 @@ namespace TileRealms
 
             player.Update(frameTime, projectiles);
 
+<<<<<<< HEAD
+            if (r.Next(1000) == 0)
+            {
+                Enemy e = new Enemy();
+                e.Initialize(new RandomWalk(), new Vector2(0, 0));
+=======
             if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
                 Enemy e = new Enemy();
                 e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
+>>>>>>> cab52137d5f384ebf5492ace2eafa310ee344497
                 enemies.Add(e);
             }
 
