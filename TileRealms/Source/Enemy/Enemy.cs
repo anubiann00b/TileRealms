@@ -16,9 +16,10 @@ namespace TileRealms
         public Vector2 location;
         EnemyController controller;
 
-        public void Initialize(EnemyController e)
+        public void Initialize(EnemyController e, Vector2 _location)
         {
             controller = e;
+            location = _location;
         }
 
         public void LoadContent(ContentManager content)

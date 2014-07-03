@@ -22,6 +22,8 @@ namespace TileRealms
 
         List<Enemy> enemies;
         List<Projectile> projectiles;
+        EnemyController spawner;
+        Random r;
 
         public MainGame()
         {
@@ -32,6 +34,7 @@ namespace TileRealms
             world = new World(worldSize);
             enemies = new List<Enemy>();
             projectiles = new List<Projectile>();
+            r = new Random();
         }
 
         protected override void Initialize()
@@ -82,6 +85,13 @@ namespace TileRealms
             double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
 
             player.Update(frameTime, projectiles);
+
+            if ((r.Next(100)) == 0) && enemies.Count < 1000)
+            {
+                Enemy e = new Enemy();
+                e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
+                enemies.Add(e);
+            }
 
             for (int i = 0; i < enemies.Count; i++)
             {
