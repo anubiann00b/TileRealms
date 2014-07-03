@@ -23,7 +23,7 @@ namespace TileRealms
         public void Initialize(MovementPattern pat)
         {
             pattern = pat;
-            sprite = new Animation(TextureLibrary.magic_ball_red, 4, new Vector2(16, 16), 166);
+            sprite = new Animation(TextureLibrary.MAGIC_BALL_RED, 4, new Vector2(16, 16), 166);
         }
 
         public void Update(double time)

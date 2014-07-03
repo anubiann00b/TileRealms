@@ -20,7 +20,7 @@ namespace TileRealms
         public static TextureLibrary MUTANT_LEFT  = new TextureLibrary("mutant_left");
         public static TextureLibrary MUTANT_DOWN  = new TextureLibrary("mutant_down");
 
-        public static TextureLibrary magic_ball_red = new TextureLibrary("red");
+        public static TextureLibrary MAGIC_BALL_RED = new TextureLibrary("red");
 
         public static void LoadLibraryContent(ContentManager content)
         {
@@ -33,6 +33,8 @@ namespace TileRealms
             MUTANT_UP.LoadContent(content);
             MUTANT_LEFT.LoadContent(content);
             MUTANT_DOWN.LoadContent(content);
+
+            MAGIC_BALL_RED.LoadContent(content);
         }
 
         String path;
