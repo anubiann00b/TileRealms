@@ -15,10 +15,10 @@ namespace TileRealms
 
         public World(Vector2 worldSize)
         {
-            map = new Tile[(int)(worldSize.X / 64), (int)(worldSize.Y / 64)];
-            for (int i = 0; i < (int)(worldSize.X / 64); i++)
+            map = new Tile[(int)(worldSize.X / 64) + 1, (int)(worldSize.Y / 64) + 1];
+            for (int i = 0; i < (int)(worldSize.X / 64) + 1; i++)
             {
-                for (int j = 0; j < (int)(worldSize.Y / 64); j++)
+                for (int j = 0; j < (int)(worldSize.Y / 64) + 1; j++)
                 {
                     //change this line to create biomes
                     map[i, j] = Tile.TILE_GRASS;
@@ -34,7 +34,7 @@ namespace TileRealms
                 {
                     if (i >= map.GetLength(0) || j >= map.GetLength(1))
                         continue;
-                    map[i, j].Draw(spriteBatch, new Vector2(i * 64 - view.Width / 2, j * 64 - view.Height / 2));
+                    map[i, j].Draw(spriteBatch, new Vector2(i * 64, j * 64));
                 }
             }
         }
