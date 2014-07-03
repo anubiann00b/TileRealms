@@ -22,11 +22,16 @@ namespace TileRealms
         public void Initialize(Viewport vp)
         {
             viewport = vp;
-        }
 
-        public void LoadContent(ContentManager content)
-        {
-            sprite = new Sprite(new String[] { "player_right", "player_up", "player_left", "player_down" }, 4, new Vector2(16, 16), 166, content);
+            sprite = new Sprite(new TextureLibrary[] 
+                {
+                    TextureLibrary.PLAYER_RIGHT,
+                    TextureLibrary.PLAYER_UP,
+                    TextureLibrary.PLAYER_LEFT,
+                    TextureLibrary.PLAYER_DOWN 
+                },
+                4, new Vector2(16, 16), 166
+            );
         }
 
         public void UnloadContent()

@@ -14,13 +14,13 @@ namespace TileRealms
         Animation[] animations;
         int currentDir;
 
-        public Sprite(String[] files, int frames, Vector2 newSize, int speed, ContentManager content)
+        public Sprite(TextureLibrary[] textures, int frames, Vector2 newSize, int speed)
         {
             currentDir = 0;
-            animations = new Animation[files.GetLength(0)];
-            for (int i = 0; i < files.GetLength(0); i++)
+            animations = new Animation[textures.GetLength(0)];
+            for (int i = 0; i < textures.GetLength(0); i++)
             {
-                animations[i] = new Animation(files[i], frames, newSize, speed, content);
+                animations[i] = new Animation(textures[i], frames, newSize, speed);
             }
         }
 

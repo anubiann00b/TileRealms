@@ -6,18 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TileRealms.Source.Graphics
+namespace TileRealms
 {
     class TextureLibrary
     {
-        static List<TextureLibrary> textures = new List<TextureLibrary>();
+        public static TextureLibrary PLAYER_RIGHT = new TextureLibrary("player_right");
+        public static TextureLibrary PLAYER_UP    = new TextureLibrary("player_up");
+        public static TextureLibrary PLAYER_LEFT  = new TextureLibrary("player_left");
+        public static TextureLibrary PLAYER_DOWN  = new TextureLibrary("player_down");
+        
+        public static TextureLibrary MUTANT_RIGHT = new TextureLibrary("mutant_right");
+        public static TextureLibrary MUTANT_UP    = new TextureLibrary("mutant_up");
+        public static TextureLibrary MUTANT_LEFT  = new TextureLibrary("mutant_left");
+        public static TextureLibrary MUTANT_DOWN  = new TextureLibrary("mutant_down");
 
-        static TextureLibrary PLAYER_DOWN = new TextureLibrary("player_down");
-
-        static void LoadLibraryContent(ContentManager content)
+        public static void LoadLibraryContent(ContentManager content)
         {
+            PLAYER_RIGHT.LoadContent(content);
+            PLAYER_UP.LoadContent(content);
+            PLAYER_LEFT.LoadContent(content);
             PLAYER_DOWN.LoadContent(content);
-            textures.Add(PLAYER_DOWN);
+
+            MUTANT_RIGHT.LoadContent(content);
+            MUTANT_UP.LoadContent(content);
+            MUTANT_LEFT.LoadContent(content);
+            MUTANT_DOWN.LoadContent(content);
         }
 
         String path;
@@ -31,6 +44,11 @@ namespace TileRealms.Source.Graphics
         void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(path);
+        }
+
+        public Texture2D GetTexture()
+        {
+            return texture;
         }
     }
 }

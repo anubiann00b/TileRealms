@@ -130,6 +130,7 @@
     <Compile Include="Source\Graphics\Animation.cs" />
     <Compile Include="Source\Enemy\Enemy.cs" />
     <Compile Include="Source\Enemy\EnemyController.cs" />
+    <Compile Include="Source\Graphics\TextureLibrary.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />
     <Compile Include="Source\Projectile\Projectile.cs" />
@@ -167,18 +168,10 @@
     <Content Include="Content\player_up.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\down.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\left.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\right.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\up.xnb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\mutant_down.xnb" />
+    <Content Include="Content\mutant_left.xnb" />
+    <Content Include="Content\mutant_right.xnb" />
+    <Content Include="Content\mutant_up.xnb" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

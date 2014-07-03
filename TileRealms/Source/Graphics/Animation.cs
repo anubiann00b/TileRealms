@@ -12,7 +12,7 @@ namespace TileRealms
     class Animation
     {
         Texture2D texture;
-        String fileName;
+        TextureLibrary textureSource;
         int numFrames;
         int currentFrame;
 
@@ -24,12 +24,12 @@ namespace TileRealms
         bool stopped = false;
         int duration;
 
-        public Animation(String file, int frames, Vector2 newSize, int speed, ContentManager content)
+        public Animation(TextureLibrary file, int frames, Vector2 newSize, int speed)
         {
             duration = speed;
-            fileName = file;
+            textureSource = file;
 
-            texture = content.Load<Texture2D>(fileName);
+            texture = textureSource.GetTexture();
 
             size = newSize;
             numFrames = frames;

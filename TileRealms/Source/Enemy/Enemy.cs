@@ -20,11 +20,16 @@ namespace TileRealms
         {
             controller = e;
             location = _location;
-        }
 
-        public void LoadContent(ContentManager content)
-        {
-            sprite = new Sprite(new String[] { "right", "up", "left", "down" }, 4, new Vector2(16, 16), 166, content);
+            sprite = new Sprite(new TextureLibrary[] 
+                {
+                    TextureLibrary.MUTANT_RIGHT,
+                    TextureLibrary.MUTANT_UP,
+                    TextureLibrary.MUTANT_LEFT,
+                    TextureLibrary.MUTANT_DOWN 
+                },
+                4, new Vector2(16, 16), 166
+            );
         }
 
         public void Update(double time)
@@ -34,7 +39,6 @@ namespace TileRealms
 
         public void Draw(SpriteBatch spriteBatch, double time)
         {
-            //The line below is giving me NULLREFERENCEEXCEPTIONS
             sprite.Draw(spriteBatch, time, location);
         }
     }

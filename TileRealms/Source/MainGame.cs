@@ -39,6 +39,8 @@ namespace TileRealms
 
         protected override void Initialize()
         {
+            TextureLibrary.LoadLibraryContent(Content);
+
             r = new Random();
 
             viewport = GraphicsDevice.Viewport;
@@ -61,17 +63,7 @@ namespace TileRealms
         {
             Tile.LoadTiles(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player.LoadContent(Content);
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                Enemy e = enemies.ElementAt(i);
-                e.LoadContent(Content);
-            }
-            for (int i = 0; i < projectiles.Count; i++)
-            {
-                Projectile p = projectiles.ElementAt(i);
-                p.LoadContent(Content);
-            }
+            
         }
 
         protected override void UnloadContent()
