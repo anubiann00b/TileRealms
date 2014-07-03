@@ -16,14 +16,15 @@ namespace TileRealms
         public Vector2 location;
         EnemyController controller;
 
-        public void Initialize(EnemyController e)
+        public void Initialize(EnemyController e, Vector2 l)
         {
             controller = e;
+            location = l;
         }
 
         public void LoadContent(ContentManager content)
         {
-            sprite = new Sprite(new String[] { "player_right", "player_up", "player_left", "player_down" }, 4, new Vector2(16, 16), 166, content);
+            sprite = new Sprite(new String[] { "right", "up", "left", "down" }, 4, new Vector2(16, 16), 166, content);
         }
 
         public void Update(double time)
@@ -33,6 +34,7 @@ namespace TileRealms
 
         public void Draw(SpriteBatch spriteBatch, double time)
         {
+            //The line below is giving me NULLREFERENCEEXCEPTIONS
             sprite.Draw(spriteBatch, time, location);
         }
     }

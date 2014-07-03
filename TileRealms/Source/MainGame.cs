@@ -14,6 +14,7 @@ namespace TileRealms
         SpriteBatch spriteBatch;
         Viewport viewport;
         Player player;
+        Random r;
 
         World world;
 
@@ -36,13 +37,15 @@ namespace TileRealms
 
         protected override void Initialize()
         {
+            r = new Random();
+
             viewport = GraphicsDevice.Viewport;
 
             player = new Player();
             player.Initialize(viewport);
 
             Enemy e = new Enemy();
-            e.Initialize(new RandomWalk());
+            e.Initialize(new RandomWalk(), new Vector2(0, 0));
             enemies.Add(e);
 
             Projectile p = new Projectile(new Vector2(0,0));
@@ -82,6 +85,13 @@ namespace TileRealms
             double frameTime = gameTime.ElapsedGameTime.TotalMilliseconds * 60 / 1000.0;
 
             player.Update(frameTime, projectiles);
+
+            if (r.Next(1000) == 0)
+            {
+                Enemy e = new Enemy();
+                e.Initialize(new RandomWalk(), new Vector2(0, 0));
+                enemies.Add(e);
+            }
 
             for (int i = 0; i < enemies.Count; i++)
             {
