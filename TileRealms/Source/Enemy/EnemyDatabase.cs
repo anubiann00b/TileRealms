@@ -4,10 +4,12 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.IO;
 using System.Diagnostics.Tracing;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace TileRealms.Source.Enemy
 {
@@ -23,16 +25,16 @@ namespace TileRealms.Source.Enemy
             Initialize();
         }
 
-        private void Initialize()
+        private async void Initialize()
         {
-            //read names
-            /*
-            for (int i = 0; i < //length//; i++)
-            {
-                string name = //file.read or something
-                names.Add(name);
-            }
-            */
+            // settings
+            // same as (ms-appx:///MyFolder/MyFile.txt)
+            var _Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            _Folder = await _Folder.GetFolderAsync("Source");
+
+            // acquire file
+            var _File = await _Folder.GetFileAsync("names.txt");
+            Debug.WriteLine(_File.OpenReadAsync());
         }
     }
 }

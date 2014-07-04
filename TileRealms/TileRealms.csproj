@@ -179,7 +179,6 @@
     <Content Include="Source\Enemy\Data\exp.txt" />
     <Content Include="Source\Enemy\Data\health.txt" />
     <Content Include="Source\Enemy\Data\names.txt" />
-    <Content Include="Source\Enemy\Data\strength.txt" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

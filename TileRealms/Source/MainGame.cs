@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TileRealms.Source.Enemy;
 
 namespace TileRealms
 {
@@ -29,7 +30,7 @@ namespace TileRealms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         EnemyController spawner;
-
+        EnemyDatabase ed;
         double ttime;
 
         public MainGame()
@@ -62,6 +63,8 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
+
+            ed = new EnemyDatabase();
 
             base.Initialize();
         }
