@@ -37,7 +37,7 @@ namespace TileRealms
             camera = new Vector2();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            worldSize = new Vector2(3600, 3600);
+            worldSize = new Vector2(10000, 10000);
             world = new World(worldSize);
             enemies = new List<Enemy>();
             projectiles = new List<Projectile>();
