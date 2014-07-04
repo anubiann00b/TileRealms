@@ -36,6 +36,17 @@ namespace TileRealms
         public void Update(double time)
         {
             controller.Update(this,time);
+            
+        }
+
+        public Boolean Destroy(Vector2 projectile)
+        {
+            if (controller.Attacked(location, new Vector2(16, 16), projectile))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void Draw(SpriteBatch spriteBatch, double time)

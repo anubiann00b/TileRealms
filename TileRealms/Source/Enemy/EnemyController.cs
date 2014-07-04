@@ -16,12 +16,14 @@ namespace TileRealms
         int x;
         int y;
 
-        public void SpawnEnemy()
+        public Boolean Attacked(Vector2 position, Vector2 size, Vector2 projectile)
         {
-            if (r.Next(100) == 0)
+            if (new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y).Contains(new Rectangle((int)projectile.X, (int)projectile.Y, (int)16, (int)16)))
             {
-                x = r.Next();
+                return true;
             }
+
+            return false;
         }
 
         public void UpdatePosition(int dir, int speed, double time, Enemy e)

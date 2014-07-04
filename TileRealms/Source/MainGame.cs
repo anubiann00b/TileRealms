@@ -124,16 +124,26 @@ namespace TileRealms
                 enemies.Add(e);
             }
 
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                Enemy e = enemies.ElementAt(i);
-                e.Update(frameTime);
-            }
             for (int i = 0; i < projectiles.Count; i++)
             {
                 Projectile p = projectiles.ElementAt(i);
                 p.Update(frameTime);
             }
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                Enemy e = enemies.ElementAt(i);
+                e.Update(frameTime);
+
+                for (int x = 0; x < projectiles.Count; x++)
+                {
+                    if (e.Destroy(projectiles.ElementAt(x).location))
+                    {
+                        enemies.Remove(enemies.ElementAt(i));
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 

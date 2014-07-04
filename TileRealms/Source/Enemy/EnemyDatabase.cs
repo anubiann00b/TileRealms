@@ -62,7 +62,7 @@ namespace TileRealms.Source.Enemy
             for (int i = 0; i < limit; i++)
             {
                 int monster_exp = 1;
-                exp.Add(monster_attack);
+                exp.Add(monster_exp);
             }
         }
     }
