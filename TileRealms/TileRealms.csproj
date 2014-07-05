@@ -143,6 +143,9 @@
     <Compile Include="Source\MainGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Graphics\Sprite.cs" />
+    <Compile Include="Source\States\MainState.cs" />
+    <Compile Include="Source\States\MenuState.cs" />
+    <Compile Include="Source\States\State.cs" />
     <Compile Include="Source\World\Tile.cs" />
     <Compile Include="Source\World\World.cs" />
   </ItemGroup>

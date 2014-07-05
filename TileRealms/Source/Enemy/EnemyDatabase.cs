@@ -29,7 +29,7 @@ namespace TileRealms.Source.Enemy
             Initialize();
         }
 
-        private async void Initialize()
+        private void Initialize()
         {
             /* SOMEHOW FIND THE FOLDER
             var _Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
