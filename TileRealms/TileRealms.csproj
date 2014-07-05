@@ -132,6 +132,7 @@
     <Compile Include="Source\Enemy\Enemy.cs" />
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
+    <Compile Include="Source\Network\ClientTCP.cs" />
     <Compile Include="Source\Network\ServerTCP.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />

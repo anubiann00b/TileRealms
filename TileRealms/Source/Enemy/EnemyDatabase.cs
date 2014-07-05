@@ -22,6 +22,10 @@ namespace TileRealms.Source.Enemy
 
         public EnemyDatabase()
         {
+            names = new List<string>();
+            health = new List<int>();
+            attack = new List<int>();
+            exp = new List<int>();
             Initialize();
         }
 
