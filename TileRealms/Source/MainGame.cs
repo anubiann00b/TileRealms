@@ -25,7 +25,6 @@ namespace TileRealms
         Vector2 worldSize;
 
         Texture2D mouseTexture;
-        Vector2 mouseLocation;
 
         List<Enemy> enemies;
         List<Projectile> projectiles;
