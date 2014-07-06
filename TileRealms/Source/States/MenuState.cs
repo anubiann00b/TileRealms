@@ -12,9 +12,9 @@ namespace TileRealms
 {
     class MenuState : State
     {
-        public MenuState(GraphicsDeviceManager g, ContentManager c, Viewport v)
+        public MenuState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
         {
-            super(g, c, v);
+
         }
 
         public override State Update(GameTime gameTime)

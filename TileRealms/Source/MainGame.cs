@@ -50,9 +50,7 @@ namespace TileRealms
 
         protected override void Update(GameTime gameTime)
         {
-            currentState.Update(gameTime);
-
-            currentState = currentState.GetNextState();
+            currentState = currentState.Update(gameTime);
 
             base.Update(gameTime);
         }

@@ -30,9 +30,8 @@ namespace TileRealms
         EnemyDatabase ed;
         double ttime;
 
-        public MainState(GraphicsDeviceManager g, ContentManager c, Viewport v)
+        public MainState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
         {
-            super(g, c, v);
             camera = new Vector2();
             worldSize = new Vector2(10000, 10000);
             world = new World(worldSize);

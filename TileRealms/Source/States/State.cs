@@ -25,7 +25,7 @@ namespace TileRealms
         public string type;
         public virtual void Initialize() { }
         public virtual void LoadContent() { }
-        public virtual State Update(GameTime gameTime) { }
+        public virtual State Update(GameTime gameTime) { return this; }
         public virtual void Draw(GameTime gameTime, SpriteBatch s) { }
     }
 }
