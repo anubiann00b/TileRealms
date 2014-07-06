@@ -14,9 +14,6 @@ namespace TileRealms
 {
     public class MainState : State
     {
-        GraphicsDeviceManager graphics;
-        ContentManager content;
-        Viewport viewport;
         Player player;
         Random r;
 
@@ -35,10 +32,8 @@ namespace TileRealms
 
         public MainState(GraphicsDeviceManager g, ContentManager c, Viewport v)
         {
+            super(g, c, v);
             camera = new Vector2();
-            graphics = g;
-            content = c;
-            viewport = v;
             worldSize = new Vector2(10000, 10000);
             world = new World(worldSize);
             enemies = new List<Enemy>();
@@ -72,7 +67,7 @@ namespace TileRealms
 
         }
 
-        public override void Update(GameTime gameTime)
+        public override State Update(GameTime gameTime)
         {
             camera.X = MathHelper.Clamp(player.location.X - viewport.Width / 2, 0, worldSize.X - viewport.Width);
             camera.Y = MathHelper.Clamp(player.location.Y - viewport.Height / 2, 0, worldSize.Y - viewport.Height);
@@ -132,6 +127,8 @@ namespace TileRealms
                     }
                 }
             }
+
+            return this;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
