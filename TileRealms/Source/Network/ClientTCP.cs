@@ -20,19 +20,13 @@ namespace TileRealms
             socket = new StreamSocket();
             IAsyncAction bindAction = socket.ConnectAsync(new HostName("127.0.0.1"), "9999"); ;
             Task.WaitAny(bindAction.AsTask());
-
-
-
             Task.Run(() => Read());
         }
 
         public void Read()
         {
-            IInputStream clientIn = socket.InputStream;
-            IOutputStream clientOut = socket.OutputStream;
-
-            DataWriter dataOut = new DataWriter(clientOut);
-            DataReader dataIn = new DataReader(clientIn);
+            DataWriter dataOut = new DataWriter(socket.OutputStream);
+            DataReader dataIn = new DataReader(socket.InputStream);
 
             id = dataIn.ReadInt32();
 

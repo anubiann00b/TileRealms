@@ -29,11 +29,8 @@ namespace TileRealms
         {
             StreamSocket client = eventArgs.Socket;
 
-            IInputStream clientIn = client.InputStream;
-            IOutputStream clientOut = client.OutputStream;
-
-            DataWriter dataOut = new DataWriter(clientOut);
-            DataReader dataIn = new DataReader(clientIn);
+            DataWriter dataOut = new DataWriter(client.OutputStream);
+            DataReader dataIn = new DataReader(client.InputStream);
 
             Interlocked.Increment(ref clientCounter);
             dataOut.WriteInt32(Interlocked.Increment(ref clientCounter));
