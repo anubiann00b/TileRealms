@@ -18,6 +18,7 @@ namespace TileRealms
 
         public Boolean Attacked(Vector2 position, Vector2 size, Vector2 projectile)
         {
+            //VERY SUCKISH PROGRAMMING
             if (new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y).Contains(new Rectangle((int)projectile.X, (int)projectile.Y, (int)16, (int)16)))
             {
                 return true;

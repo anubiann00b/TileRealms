@@ -9,65 +9,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using Windows.Storage;
 
 namespace TileRealms.Source.Enemy
 {
     class EnemyDatabase
     {
-        public List<string> names;
-        public List<int> health;
-        public List<int> attack;
-        public List<int> exp;
+        public List<EnemyAttributes> enemyData;
+        private List<string> names;
+        private List<int> health;
+        private List<int> attack;
+        //private List<int> defense;
+        //   NOT USABLE YET
+        //private List<int> experience;
+        private List<int> speed; //FOR NOW IT'S DEFAULT
+        //WON'T BE USED FOR A WHILE
 
         public EnemyDatabase()
         {
-            names = new List<string>();
-            health = new List<int>();
-            attack = new List<int>();
-            exp = new List<int>();
+            enemyData = new List<EnemyAttributes>();
             Initialize();
         }
 
         private void Initialize()
         {
-            /* SOMEHOW FIND THE FOLDER
-            var _Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            _Folder = await _Folder.GetFolderAsync("Source");
+            LoadNames();
+            LoadHealth();
+            LoadAttack();
+        }
 
-             * 
-             *THEN READ THE FILE
-             * 
-            // acquire file
-            var _File = await _Folder.GetFileAsync("names.txt");
-            Debug.WriteLine(_File.OpenReadAsync());
-             * 
-                USE UNITEDJAYMO.COM/[RANDOMHASH]/NAMES.TXT
-             */
-            int limit = 1; ; //Just scrap
-            for (int i = 0; i < limit; i++)
+        private async void LoadNames()
+        {
+            var path = @"Assets\Data\names.txt";
+            var InstalledLocation = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            var file = await InstalledLocation.GetFileAsync(path);
+            var readFile = await Windows.Storage.FileIO.ReadLinesAsync(file);
+            foreach (var line in readFile)
             {
-                string monster_name = "";
-                names.Add(monster_name);
-            }
-
-            for (int i = 0; i < limit; i++)
-            {
-                int monster_health = 100;
-                health.Add(monster_health);
-            }
-
-            for (int i = 0; i < limit; i++)
-            {
-                int monster_attack = 0;
-                attack.Add(monster_attack);
-            }
-
-            for (int i = 0; i < limit; i++)
-            {
-                int monster_exp = 1;
-                exp.Add(monster_exp);
+                names.Add(line);
             }
         }
+
+        private async void LoadHealth()
+        {
+            var path = @"Assets\Data\health.txt";
+            var InstalledLocation = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            var file = await InstalledLocation.GetFileAsync(path);
+            var readFile = await Windows.Storage.FileIO.ReadLinesAsync(file);
+            foreach (var line in readFile)
+            {
+                health.Add(Convert.ToInt32(line));
+            }
+        }
+
+        private async void LoadAttack()
+        {
+            var path = @"Assets\Data\names.txt";
+            var InstalledLocation = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            var file = await InstalledLocation.GetFileAsync(path);
+            var readFile = await Windows.Storage.FileIO.ReadLinesAsync(file);
+            foreach (var line in readFile)
+            {
+                attack.Add(Convert.ToInt32(line));
+            }
+        }
+
+        //NO DEFENSE OR EXPERIENCE METHOD YET
     }
 }

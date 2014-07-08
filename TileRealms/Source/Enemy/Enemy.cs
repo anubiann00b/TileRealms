@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Tracing;
+using System.Diagnostics;
+using TileRealms.Source.Enemy;
 
 namespace TileRealms
 {
@@ -14,9 +17,7 @@ namespace TileRealms
     {
         public Sprite sprite;
         public Vector2 location;
-        public int health;
         EnemyController controller;
-
         public void Initialize(EnemyController e, Vector2 _location)
         {
             controller = e;

@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Ally.cs" />
+    <Compile Include="Source\Enemy\EnemyAttributes.cs" />
     <Compile Include="Source\Enemy\EnemyDatabase.cs" />
     <Compile Include="Source\Graphics\Animation.cs" />
     <Compile Include="Source\Enemy\Enemy.cs" />
@@ -186,10 +187,15 @@
     <Content Include="Content\red.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Source\Enemy\Data\exp.txt" />
-    <Content Include="Source\Enemy\Data\health.txt" />
-    <Content Include="Source\Enemy\Data\names.txt" />
-    <Content Include="Source\Enemy\Data\strength.txt" />
+    <Content Include="Assets\Data\strength.txt" />
+    <Content Include="Assets\Data\names.txt" />
+    <Content Include="Assets\Data\health.txt" />
+    <Content Include="Assets\Data\exp.txt" />
+    <None Include="Source\Enemy\names.txt" />
+    <None Include="Source\Enemy\Data\exp.txt" />
+    <None Include="Source\Enemy\Data\health.txt" />
+    <None Include="Source\Enemy\Data\names.txt" />
+    <None Include="Source\Enemy\Data\strength.txt" />
     <None Include="TileRealms_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
