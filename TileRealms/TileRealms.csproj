@@ -150,6 +150,7 @@
     <Compile Include="Source\States\MainState.cs" />
     <Compile Include="Source\States\MenuState.cs" />
     <Compile Include="Source\States\State.cs" />
+    <Compile Include="Source\World\Dungeon\DungeonLevel.cs" />
     <Compile Include="Source\World\Map.cs" />
     <Compile Include="Source\World\Tile.cs" />
     <Compile Include="Source\World\World.cs" />
