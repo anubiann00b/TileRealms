@@ -22,7 +22,7 @@ namespace TileRealms
             KeyboardState state = Keyboard.GetState();
 
             if (state.IsKeyDown(Keys.Space))
-                return new MainState(graphics, content, viewport);
+                return new GameState(graphics, content, viewport);
 
             return this;
         }

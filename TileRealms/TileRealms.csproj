@@ -127,12 +127,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Ally.cs" />
     <Compile Include="Source\Enemy\EnemyDatabase.cs" />
     <Compile Include="Source\Graphics\Animation.cs" />
     <Compile Include="Source\Enemy\Enemy.cs" />
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
     <Compile Include="Source\Network\ClientTCP.cs" />
+    <Compile Include="Source\Network\ClientUDP.cs" />
+    <Compile Include="Source\Network\NetworkManager.cs" />
+    <Compile Include="Source\Network\ServerManager.cs" />
     <Compile Include="Source\Network\ServerTCP.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />

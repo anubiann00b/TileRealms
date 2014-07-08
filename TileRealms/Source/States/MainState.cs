@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TileRealms
 {
-    public class MainState : State
+    public class GameState : State
     {
         Player player;
         Random r;
@@ -30,7 +30,7 @@ namespace TileRealms
         EnemyDatabase ed;
         double ttime;
 
-        public MainState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
+        public GameState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
         {
             camera = new Vector2();
             worldSize = new Vector2(10000, 10000);

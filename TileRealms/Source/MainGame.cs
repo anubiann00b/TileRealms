@@ -30,7 +30,7 @@ namespace TileRealms
             IsMouseVisible = true;
 
             viewport = GraphicsDevice.Viewport;
-            currentState = new MainState(graphics, Content, viewport);
+            currentState = new GameState(graphics, Content, viewport);
 
             currentState.Initialize();
 
