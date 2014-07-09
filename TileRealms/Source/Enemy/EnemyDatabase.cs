@@ -34,9 +34,11 @@ namespace TileRealms.Source.Enemy
 
         private void Initialize()
         {
+            /*
             LoadNames();
             LoadHealth();
             LoadAttack();
+             * */
         }
 
         private async void LoadNames()

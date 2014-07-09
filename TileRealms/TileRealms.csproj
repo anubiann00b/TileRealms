@@ -134,6 +134,7 @@
     <Compile Include="Source\Enemy\Enemy.cs" />
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
+    <Compile Include="Source\Health\Health.cs" />
     <Compile Include="Source\Network\ClientTCP.cs" />
     <Compile Include="Source\Network\ClientUDP.cs" />
     <Compile Include="Source\Network\NetworkManager.cs" />
@@ -192,7 +193,12 @@
     <Content Include="Assets\Data\names.txt" />
     <Content Include="Assets\Data\health.txt" />
     <Content Include="Assets\Data\exp.txt" />
-    <None Include="Source\Enemy\names.txt" />
+    <Content Include="Content\Health\Health-bar.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Health\Health.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Source\Enemy\Data\exp.txt" />
     <None Include="Source\Enemy\Data\health.txt" />
     <None Include="Source\Enemy\Data\names.txt" />

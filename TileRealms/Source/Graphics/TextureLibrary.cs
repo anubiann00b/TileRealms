@@ -22,6 +22,9 @@ namespace TileRealms
 
         public static TextureLibrary MAGIC_BALL_RED = new TextureLibrary("red");
 
+        public static TextureLibrary HealthBar= new TextureLibrary(@"Health\Health_bar");
+        public static TextureLibrary Health = new TextureLibrary(@"Health\Health");
+
         public static void LoadLibraryContent(ContentManager content)
         {
             PLAYER_RIGHT.LoadContent(content);
@@ -35,6 +38,9 @@ namespace TileRealms
             MUTANT_DOWN.LoadContent(content);
 
             MAGIC_BALL_RED.LoadContent(content);
+
+            //HealthBar.LoadContent(content);
+            //Health.LoadContent(content);
         }
 
         String path;
