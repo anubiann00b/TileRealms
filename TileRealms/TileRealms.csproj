@@ -135,11 +135,13 @@
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
     <Compile Include="Source\Health\Health.cs" />
-    <Compile Include="Source\Network\ClientTCP.cs" />
-    <Compile Include="Source\Network\ClientUDP.cs" />
+    <Compile Include="Source\Network\Client\ClientTCP.cs" />
+    <Compile Include="Source\Network\Client\ClientUDP.cs" />
     <Compile Include="Source\Network\NetworkManager.cs" />
-    <Compile Include="Source\Network\ServerManager.cs" />
-    <Compile Include="Source\Network\ServerTCP.cs" />
+    <Compile Include="Source\Network\Server\Client.cs" />
+    <Compile Include="Source\Network\Server\ServerManager.cs" />
+    <Compile Include="Source\Network\Server\ServerTCP.cs" />
+    <Compile Include="Source\Network\Server\ServerUDP.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />
     <Compile Include="Source\Projectile\Projectile.cs" />

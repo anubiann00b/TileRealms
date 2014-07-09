@@ -13,27 +13,47 @@ namespace TileRealms
     class ServerUDP
     {
         DatagramSocket socket;
+        ServerManager manager;
 
-        public void Start()
+        public void Start(ServerManager m)
         {
+            manager = m;
             socket = new DatagramSocket();
             IAsyncAction bindAction = socket.BindServiceNameAsync("9998");
             Task.WaitAny(bindAction.AsTask());
-            Task.Run(() => Write());
-
             socket.MessageReceived += HandlePacketRecieved;
+
+            Task.Run(() => UpdateAlLClients());
         }
 
         private void HandlePacketRecieved(DatagramSocket socket, DatagramSocketMessageReceivedEventArgs eventArgs)
         {
             DataReader dataIn = eventArgs.GetDataReader();
+            string ip = eventArgs.RemoteAddress.CanonicalName;
+            string port = eventArgs.RemotePort;
+
+            for (int i = 0; i < manager.clients.Count; i++)
+            {
+                Client c = manager.clients.ElementAt(i);
+
+                if (c.Equals(ip, port))
+                {
+                    UpdateClient(c, dataIn);
+                    return;
+                }
+            }
+
+            // Ignore unknown sources.
         }
 
-        public void Write()
+        private void UpdateClient(Client c, DataReader data)
         {
-            DataWriter dataOut = new DataWriter(socket.OutputStream);
+            
+        }
 
-            dataOut.WriteInt32(42);
+        public void UpdateAlLClients()
+        {
+            
         }
     }
 }
