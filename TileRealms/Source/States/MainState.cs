@@ -123,7 +123,7 @@ namespace TileRealms
             for (int i = 0; i < projectiles.Count; i++)
             {
                 Projectile p = projectiles.ElementAt(i);
-                if (Math.Pow(player.location.X - p.location.X, 2) + Math.Pow(player.location.Y - p.location.Y, 2) > 100000)
+                if (Math.Pow(player.location.X - p.location.X, 2) + Math.Pow(player.location.Y - p.location.Y, 2) > 250000)
                 {
                     projectiles.RemoveAt(i);
                     i--;
