@@ -37,9 +37,15 @@ namespace TileRealms.Source.Health
             hPos = new Vector2(0, 0);
         }
 
+        double ha = 1;
+
         public void Update()
         {
-
+            if (true)
+            {
+                ha -= 0.01;
+                healthP.SetWidth(ha);
+            }
         }
 
 

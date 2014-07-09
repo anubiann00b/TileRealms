@@ -201,6 +201,12 @@
     <Content Include="Content\Health\Health.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Zap.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\DetectionBox.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Source\Enemy\Data\exp.txt" />
     <None Include="Source\Enemy\Data\health.txt" />
     <None Include="Source\Enemy\Data\names.txt" />

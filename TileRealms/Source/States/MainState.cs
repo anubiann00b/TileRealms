@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TileRealms.Source.Enemy;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 
 namespace TileRealms
 {
@@ -27,7 +28,11 @@ namespace TileRealms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         EnemyController spawner;
+
+        Texture2D CollisionBox;
+
         double ttime;
+        bool project = false;
 
         public GameState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
         {
@@ -60,6 +65,7 @@ namespace TileRealms
             Tile.LoadTiles(content);
 
             mouseTexture = content.Load<Texture2D>("Random_warrior");
+            CollisionBox = content.Load<Texture2D>("DetectionBox");
 
         }
 
@@ -87,6 +93,7 @@ namespace TileRealms
                     p.Initialize(new MovementLinear(dir, 10));
                     projectiles.Add(p);
                     ttime = 0;
+                    project = true;
                 }
 
             }
@@ -97,7 +104,7 @@ namespace TileRealms
             }
             //PROJECTILE SYSTEM
 
-            if ((r.Next(100) == 0) && enemies.Count < 1000)
+            if ((r.Next(100) == 0) && enemies.Count < 5)
             {
                 Enemy e = new Enemy();
                 e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
@@ -114,12 +121,20 @@ namespace TileRealms
             {
                 Enemy e = enemies.ElementAt(i);
                 e.Update(frameTime);
+            }
 
-                for (int x = 0; x < projectiles.Count; x++)
+            if (projectiles.Count == 0) project = false;
+            if (project)
+            {
+                for (int i = 0; i < enemies.Count; i++)
                 {
-                    if (e.Destroy(projectiles.ElementAt(x).location))
+                    for (int x = 0; x < projectiles.Count; x++)
                     {
-                        enemies.Remove(enemies.ElementAt(i));
+                        if (enemies.ElementAt(i).Destroy(projectiles.ElementAt(x).location))
+                        {
+                            enemies.Remove(enemies.ElementAt(i));
+                            projectiles.Remove(projectiles.ElementAt(x));
+                        }
                     }
                 }
             }

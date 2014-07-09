@@ -40,8 +40,8 @@ namespace TileRealms
                 4, new Vector2(16, 16), 166
             );
 
-            
-            //enemyHealth = new Health(ed.enemyData[0].hp);
+
+            //enemyHealth = new Health(ed.enemyData.ElementAt(1).hp);
         }
 
         public void Update(double time)
@@ -57,7 +57,8 @@ namespace TileRealms
                 return true;
             }
 
-            return false;
+            else 
+                return false;
         }
 
         public void Draw(SpriteBatch spriteBatch, double time)

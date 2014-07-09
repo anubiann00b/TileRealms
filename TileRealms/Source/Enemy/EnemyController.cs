@@ -10,20 +10,27 @@ namespace TileRealms
     abstract class EnemyController
     {
         Random r = new Random();
-
+        Rectangle enemyRect = new Rectangle(0, 0, 16, 16);
+        Rectangle projRect = new Rectangle(0, 0, 16, 16);
         public abstract void Update(Enemy e, double time);
 
         int x;
         int y;
 
         public Boolean Attacked(Vector2 position, Vector2 size, Vector2 projectile)
-        {
-            //VERY SUCKISH PROGRAMMING
-            if (new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y).Contains(new Rectangle((int)projectile.X, (int)projectile.Y, (int)16, (int)16)))
+        {                
+            enemyRect.X = (int)position.X;
+            enemyRect.Y = (int)position.Y;
+            projRect.X = (int)projectile.X;
+            projRect.Y = (int)projectile.Y;
+
+            if (enemyRect.Intersects(projRect))
             {
+                System.Diagnostics.Debug.WriteLine("HIT");
                 return true;
             }
 
+            System.Diagnostics.Debug.WriteLine("failure");
             return false;
         }
 

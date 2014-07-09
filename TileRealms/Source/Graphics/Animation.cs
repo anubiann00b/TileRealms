@@ -74,5 +74,10 @@ namespace TileRealms
         {
             currentFrame = frame;
         }
+
+        public void SetWidth(double percentage)
+        {
+            destRect.X = Convert.ToInt32(destRect.X * (int)percentage);
+        }
     }
 }
