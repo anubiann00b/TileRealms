@@ -22,7 +22,8 @@ namespace TileRealms.Source.Health
         Vector2 hPos;
 
         int hp;
-        public Health (int health)
+
+        public Health(int health)
 	    {
             Initialize(health);
 	    }
