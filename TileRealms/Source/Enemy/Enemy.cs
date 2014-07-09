@@ -52,13 +52,7 @@ namespace TileRealms
 
         public Boolean Destroy(Vector2 projectile)
         {
-            if (controller.Attacked(location, new Vector2(16, 16), projectile))
-            {
-                return true;
-            }
-
-            else 
-                return false;
+            return controller.Attacked(location, new Vector2(16, 16), projectile);
         }
 
         public void Draw(SpriteBatch spriteBatch, double time)

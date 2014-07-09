@@ -32,7 +32,6 @@ namespace TileRealms
         Texture2D CollisionBox;
 
         double ttime;
-        bool project = false;
 
         public GameState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
         {
@@ -93,9 +92,7 @@ namespace TileRealms
                     p.Initialize(new MovementLinear(dir, 10));
                     projectiles.Add(p);
                     ttime = 0;
-                    project = true;
                 }
-
             }
 
             else if (mouseState.LeftButton == ButtonState.Released)
@@ -123,22 +120,27 @@ namespace TileRealms
                 e.Update(frameTime);
             }
 
-            if (projectiles.Count == 0) project = false;
-            if (project)
+            for (int i = 0; i < projectiles.Count; i++)
             {
-                for (int i = 0; i < enemies.Count; i++)
+                Projectile p = projectiles.ElementAt(i);
+                if (Math.Pow(player.location.X - p.location.X, 2) + Math.Pow(player.location.Y - p.location.Y, 2) > 100000)
                 {
-                    for (int x = 0; x < projectiles.Count; x++)
+                    projectiles.RemoveAt(i);
+                    i--;
+                }
+
+                for (int j = 0; j < enemies.Count; j++)
+                {
+                    Enemy e = enemies.ElementAt(j);
+                    if (e.Destroy(p.location))
                     {
-                        if (enemies.ElementAt(i).Destroy(projectiles.ElementAt(x).location))
-                        {
-                            enemies.Remove(enemies.ElementAt(i));
-                            projectiles.Remove(projectiles.ElementAt(x));
-                        }
+                        enemies.RemoveAt(j);
+                        j--;
+                        projectiles.RemoveAt(i);
+                        i--;
                     }
                 }
             }
-
             return this;
         }
 

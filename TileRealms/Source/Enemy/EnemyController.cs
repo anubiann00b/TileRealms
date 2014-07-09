@@ -24,14 +24,7 @@ namespace TileRealms
             projRect.X = (int)projectile.X;
             projRect.Y = (int)projectile.Y;
 
-            if (enemyRect.Intersects(projRect))
-            {
-                System.Diagnostics.Debug.WriteLine("HIT");
-                return true;
-            }
-
-            System.Diagnostics.Debug.WriteLine("failure");
-            return false;
+            return enemyRect.Intersects(projRect);
         }
 
         public void UpdatePosition(int dir, int speed, double time, Enemy e)
