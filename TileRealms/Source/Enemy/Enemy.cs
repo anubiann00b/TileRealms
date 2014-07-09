@@ -24,6 +24,7 @@ namespace TileRealms
 
         public void Initialize(EnemyController e, Vector2 _location)
         {
+            ed = new EnemyDatabase();
             enemyHealth = new Health(10);
 
             controller = e;
@@ -39,7 +40,7 @@ namespace TileRealms
                 4, new Vector2(16, 16), 166
             );
 
-            ed = new EnemyDatabase();
+            
             //enemyHealth = new Health(ed.enemyData[0].hp);
         }
 

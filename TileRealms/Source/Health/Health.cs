@@ -31,8 +31,8 @@ namespace TileRealms.Source.Health
         private void Initialize(int health)
         {
             hp = health;
-            HB = new Animation(TextureLibrary.HealthBar, 1, new Vector2(64, 8), 100000);
-            healthP = new Animation(TextureLibrary.Health, 1, new Vector2(62, 6), 100000);
+            HB = new Animation(TextureLibrary.HealthBar, 1, new Vector2(16, 2), 100000);
+            healthP = new Animation(TextureLibrary.Health, 1, new Vector2(16, 2), 100000);
             barPos = new Vector2(0, 0);
             hPos = new Vector2(0, 0);
         }
@@ -46,7 +46,7 @@ namespace TileRealms.Source.Health
         public void Draw(SpriteBatch spriteBatch, double GameTime, Vector2 pmLocation, Vector2 pmSize)
         {
             barPos.X = pmLocation.X;
-            barPos.Y = pmLocation.Y + pmSize.Y + 10;
+            barPos.Y = pmLocation.Y + pmSize.Y + 60;
             hPos.X = barPos.X + 1;
             hPos.Y = barPos.Y + 1;
 
