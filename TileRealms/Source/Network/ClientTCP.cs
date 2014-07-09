@@ -18,7 +18,7 @@ namespace TileRealms
         public void Start()
         {
             socket = new StreamSocket();
-            IAsyncAction bindAction = socket.ConnectAsync(new HostName("127.0.0.1"), "9998"); ;
+            IAsyncAction bindAction = socket.ConnectAsync(new HostName("127.0.0.1"), "9999"); ;
             Task.WaitAny(bindAction.AsTask());
             Task.Run(() => Read());
         }

@@ -17,7 +17,7 @@ namespace TileRealms
         public void Start()
         {
             socket = new DatagramSocket();
-            IAsyncAction bindAction = socket.BindServiceNameAsync("9999");
+            IAsyncAction bindAction = socket.BindServiceNameAsync("9998");
             Task.WaitAny(bindAction.AsTask());
             Task.Run(() => Write());
 
