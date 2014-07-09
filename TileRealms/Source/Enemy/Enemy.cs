@@ -37,8 +37,8 @@ namespace TileRealms
                 4, new Vector2(16, 16), 166
             );
 
-
-            enemyHealth = new Health(ed.enemyData[0].hp);
+            ed = new EnemyDatabase();
+            //enemyHealth = new Health(ed.enemyData[0].hp);
         }
 
         public void Update(double time)

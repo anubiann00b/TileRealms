@@ -161,6 +161,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Data\attack.txt" />
+    <Content Include="Assets\Data\defense.txt" />
+    <Content Include="Assets\Data\speed.txt" />
     <Content Include="Content\Basic-spritesheet.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -189,7 +192,6 @@
     <Content Include="Content\red.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Data\strength.txt" />
     <Content Include="Assets\Data\names.txt" />
     <Content Include="Assets\Data\health.txt" />
     <Content Include="Assets\Data\exp.txt" />
