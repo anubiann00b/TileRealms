@@ -33,12 +33,19 @@ namespace TileRealms.Source.Enemy
         }
 
         private void Initialize()
-        {
-            /*
+        {    
             LoadNames();
             LoadHealth();
             LoadAttack();
-             * */
+        }
+
+        private void MergeLists()
+        {
+            for (int i = 0; i < names.Count; i++)
+            {
+                EnemyAttributes ea = new EnemyAttributes(names[i], health[i], attack[i], defense[i], speed[i]);
+                enemyData.Add(ea);
+            }
         }
 
         private async void LoadNames()

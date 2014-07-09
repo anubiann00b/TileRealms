@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Diagnostics.Tracing;
 using System.Diagnostics;
 using TileRealms.Source.Enemy;
+using TileRealms.Source.Health;
 
 namespace TileRealms
 {
@@ -18,6 +19,9 @@ namespace TileRealms
         public Sprite sprite;
         public Vector2 location;
         EnemyController controller;
+        EnemyDatabase ed;
+        Health enemyHealth;
+
         public void Initialize(EnemyController e, Vector2 _location)
         {
             controller = e;
@@ -32,6 +36,9 @@ namespace TileRealms
                 },
                 4, new Vector2(16, 16), 166
             );
+
+
+            enemyHealth = new Health(ed.enemyData[0].hp);
         }
 
         public void Update(double time)
@@ -53,6 +60,7 @@ namespace TileRealms
         public void Draw(SpriteBatch spriteBatch, double time)
         {
             sprite.Draw(spriteBatch, time, location);
+            enemyHealth.Draw(spriteBatch, time, location, new Vector2(16, 16));
         }
     }
 }

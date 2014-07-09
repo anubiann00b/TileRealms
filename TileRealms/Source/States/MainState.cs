@@ -27,7 +27,6 @@ namespace TileRealms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         EnemyController spawner;
-        EnemyDatabase ed;
         double ttime;
 
         public GameState(GraphicsDeviceManager g, ContentManager c, Viewport v) : base(g, c, v)
@@ -54,8 +53,6 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
-
-            ed = new EnemyDatabase();
         }
 
         public override void LoadContent()

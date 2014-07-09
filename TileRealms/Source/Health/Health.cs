@@ -27,7 +27,7 @@ namespace TileRealms.Source.Health
             Initialize(health);
 	    }
 
-        public void Initialize(int health)
+        private void Initialize(int health)
         {
             hp = health;
             HB = new Animation(TextureLibrary.HealthBar, 1, new Vector2(64, 8), 100000);
