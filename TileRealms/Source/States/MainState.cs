@@ -101,7 +101,7 @@ namespace TileRealms
             }
             //PROJECTILE SYSTEM
 
-            if ((r.Next(100) == 0) && enemies.Count < 5)
+            if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
                 Enemy e = new Enemy();
                 e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
@@ -129,15 +129,18 @@ namespace TileRealms
                     i--;
                 }
 
-                for (int j = 0; j < enemies.Count; j++)
+                if (projectiles.Count > 0)
                 {
-                    Enemy e = enemies.ElementAt(j);
-                    if (e.Destroy(p.location))
+                    for (int j = 0; j < enemies.Count; j++)
                     {
-                        enemies.RemoveAt(j);
-                        j--;
-                        projectiles.RemoveAt(i);
-                        i--;
+                        Enemy e = enemies.ElementAt(j);
+                        if (e.Destroy(p.location))
+                        {
+                            enemies.RemoveAt(j);
+                            j--;
+                            projectiles.RemoveAt(i);
+                            i--;
+                        }
                     }
                 }
             }
