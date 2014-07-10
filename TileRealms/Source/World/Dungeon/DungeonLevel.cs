@@ -35,10 +35,10 @@ namespace TileRealms.Source.World.Dungeon
         //stores rooms that are created
         List<Rectangle> rectangleCollection = new List<Rectangle>();
 
-        public int height;//height of rectangle
-        public int width;//width of rectangle
-        public int x;//x position of rectangle
-        public int y;//y position of rectangle
+        public int height;//height of room
+        public int width;//width of room
+        public int x;//x position of room
+        public int y;//y position of room
 
         public void fillMap() { }
 
