@@ -21,6 +21,7 @@ namespace TileRealms
         EnemyController controller;
         EnemyDatabase ed;
         Health enemyHealth;
+        public bool dead = false;
 
         public void Initialize(EnemyController e, Vector2 _location)
         {
@@ -52,7 +53,14 @@ namespace TileRealms
 
         public Boolean Destroy(Vector2 projectile)
         {
-            return controller.Attacked(location, new Vector2(16, 16), projectile);
+            if (controller.Attacked(location, new Vector2(64, 64), projectile))
+            {
+                enemyHealth.Update(0.05);
+                dead = enemyHealth.dead;
+                return true;
+            }
+
+            return false;
         }
 
         public void Draw(SpriteBatch spriteBatch, double time)

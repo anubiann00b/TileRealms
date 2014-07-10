@@ -136,10 +136,15 @@ namespace TileRealms
                         Enemy e = enemies.ElementAt(j);
                         if (e.Destroy(p.location))
                         {
-                            enemies.RemoveAt(j);
-                            j--;
+                            
                             projectiles.RemoveAt(i);
                             i--;
+
+                            if (e.dead)
+                            {
+                                enemies.RemoveAt(j);
+                                j--;
+                            }
                         }
                     }
                 }

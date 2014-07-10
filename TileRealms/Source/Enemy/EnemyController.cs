@@ -10,8 +10,8 @@ namespace TileRealms
     abstract class EnemyController
     {
         Random r = new Random();
-        Rectangle enemyRect = new Rectangle(0, 0, 16, 16);
-        Rectangle projRect = new Rectangle(0, 0, 16, 16);
+        Rectangle enemyRect = new Rectangle(0, 0, 64, 64);
+        Rectangle projRect = new Rectangle(0, 0, 64, 64);
         public abstract void Update(Enemy e, double time);
 
         int x;
