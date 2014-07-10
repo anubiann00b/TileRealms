@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 
@@ -42,11 +43,12 @@ namespace TileRealms
 
             Interlocked.Increment(ref clientCounter);
             dataOut.WriteInt32(Interlocked.Increment(ref clientCounter));
+            dataOut.FlushAsync();
 
             // For testing, echo.
             Debug.WriteLine(dataIn.ReadInt32());
 
-            string ip = eventArgs.Socket.Information.RemoteAddress.CanonicalName;
+            HostName ip = eventArgs.Socket.Information.RemoteAddress;
             string port = client.Information.RemotePort;
 
             manager.AddClient(client, ip, port);

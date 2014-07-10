@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Networking;
 using Windows.Networking.Sockets;
 
 namespace TileRealms
 {
     class ServerManager : NetworkManager
     {
+        public Player player;
         List<Projectile> projectiles;
         List<Enemy> enemies;
         List<Ally> allies;
-        Player player;
         World world;
 
         public List<Client> clients;
@@ -29,7 +30,7 @@ namespace TileRealms
             world = w;
         }
 
-        public void AddClient(StreamSocket s, string ip, string port)
+        public void AddClient(StreamSocket s, HostName ip, string port)
         {
             Ally a = new Ally();
             a.Initialize(new Vector2());
