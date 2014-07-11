@@ -149,6 +149,30 @@ namespace TileRealms
                     }
                 }
             }
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                Enemy e = enemies.ElementAt(i);
+                if (Math.Pow(player.location.X - e.location.X, 2) + Math.Pow(player.location.Y - e.location.Y, 2) > 10000000)
+                {
+                    enemies.RemoveAt(i);
+                    i--;
+                }
+
+                if (enemies.Count > 0)
+                {
+                    Rectangle rect = new Rectangle(64, 64, (int)player.location.X, (int)player.location.Y);
+                    Rectangle trect = new Rectangle(64, 64, (int)enemies.ElementAt(i).location.X, (int)enemies.ElementAt(i).location.Y);
+                    
+                    if (rect.Contains(trect))
+                    {
+                        enemies.RemoveAt(i);
+                    }
+                   
+
+                }
+            }
+
             return this;
         }
 

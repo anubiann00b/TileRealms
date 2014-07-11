@@ -135,6 +135,9 @@
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
     <Compile Include="Source\Health\Health.cs" />
+    <Compile Include="Source\Items\ItemDatabase.cs" />
+    <Compile Include="Source\Items\ItemProfile.cs" />
+    <Compile Include="Source\Items\Items.cs" />
     <Compile Include="Source\Network\Client\ClientTCP.cs" />
     <Compile Include="Source\Network\Client\ClientUDP.cs" />
     <Compile Include="Source\Network\NetworkManager.cs" />
@@ -164,6 +167,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="Assets\Data\enemyProfile.txt" />
+    <Content Include="Assets\Data\items.txt" />
     <Content Include="Content\Basic-spritesheet.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
