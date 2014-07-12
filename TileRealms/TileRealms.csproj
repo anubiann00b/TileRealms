@@ -209,6 +209,18 @@
     <Content Include="Content\DetectionBox.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Player_Accesories\base-down.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Player_Accesories\base-left.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Player_Accesories\base-right.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Player_Accesories\base-up.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Source\Enemy\Data\exp.txt" />
     <None Include="Source\Enemy\Data\health.txt" />
     <None Include="Source\Enemy\Data\names.txt" />

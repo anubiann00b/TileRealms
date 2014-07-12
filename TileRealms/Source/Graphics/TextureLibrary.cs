@@ -10,10 +10,10 @@ namespace TileRealms
 {
     class TextureLibrary
     {
-        public static TextureLibrary PLAYER_RIGHT = new TextureLibrary("player_right");
-        public static TextureLibrary PLAYER_UP    = new TextureLibrary("player_up");
-        public static TextureLibrary PLAYER_LEFT  = new TextureLibrary("player_left");
-        public static TextureLibrary PLAYER_DOWN  = new TextureLibrary("player_down");
+        public static TextureLibrary PLAYER_RIGHT = new TextureLibrary(@"Player_Accesories\base-right");
+        public static TextureLibrary PLAYER_UP = new TextureLibrary(@"Player_Accesories\base-up");
+        public static TextureLibrary PLAYER_LEFT = new TextureLibrary(@"Player_Accesories\base-left");
+        public static TextureLibrary PLAYER_DOWN = new TextureLibrary(@"Player_Accesories\base-down");
         
         public static TextureLibrary MUTANT_RIGHT = new TextureLibrary("mutant_right");
         public static TextureLibrary MUTANT_UP    = new TextureLibrary("mutant_up");
