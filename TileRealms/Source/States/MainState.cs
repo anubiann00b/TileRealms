@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TileRealms.Source.Enemy;
+using TileRealms.Source.Health;
+using TileRealms.Source.Items;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 
@@ -27,7 +29,7 @@ namespace TileRealms
 
         List<Enemy> enemies;
         List<Projectile> projectiles;
-        EnemyController spawner;
+        List<Items> items;
 
         Texture2D CollisionBox;
 
@@ -40,6 +42,7 @@ namespace TileRealms
             world = new World(worldSize);
             enemies = new List<Enemy>();
             projectiles = new List<Projectile>();
+            items = new List<Items>();
             r = new Random();
         }
 
@@ -53,7 +56,7 @@ namespace TileRealms
             player.Initialize(viewport);
 
             Enemy e = new Enemy();
-            e.Initialize(new RandomWalk(), new Vector2(0, 0));
+            e.Initialize(new RandomWalk(), new Vector2(500, 500));
             enemies.Add(e);
 
             ttime = 0f;
@@ -142,6 +145,9 @@ namespace TileRealms
 
                             if (e.dead)
                             {
+                                Items item = new Items();
+                                item.Initialize(e.location);
+                                items.Add(item);
                                 enemies.RemoveAt(j);
                                 j--;
                             }
@@ -168,7 +174,18 @@ namespace TileRealms
                 }
             }
 
-            return this;
+            for (int i = 0; i < items.Count; i++)
+            {
+                Items item = items.ElementAt(i);
+                item.Update(gameTime);
+                if (item.expired)
+                {
+                    items.RemoveAt(i);
+                    i--;
+                }
+            }
+
+                return this;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -195,6 +212,12 @@ namespace TileRealms
             {
                 Projectile p = projectiles.ElementAt(i);
                 p.Draw(spriteBatch, frameTime);
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                Items item = items.ElementAt(i);
+                item.Draw(spriteBatch, frameTime);
             }
 
             player.Draw(spriteBatch, frameTime);
