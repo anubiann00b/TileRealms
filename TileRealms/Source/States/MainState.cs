@@ -104,7 +104,7 @@ namespace TileRealms
             if ((r.Next(100) == 0) && enemies.Count < 1000)
             {
                 Enemy e = new Enemy();
-                e.Initialize(new RandomWalk(), new Vector2(r.Next(viewport.Width), r.Next(viewport.Height)));
+                e.Initialize(new RandomWalk(), new Vector2(r.Next(1000, viewport.Width), r.Next(100, viewport.Height)));
                 enemies.Add(e);
             }
 

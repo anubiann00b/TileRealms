@@ -124,7 +124,7 @@ namespace TileRealms
 
         public void Damage()
         {
-            playerHealth.Update(0.02);
+            playerHealth.Update(0.001);
             dead = playerHealth.hp < 0;
         }
     }
