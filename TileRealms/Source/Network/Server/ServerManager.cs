@@ -14,18 +14,17 @@ namespace TileRealms
         public Player player;
         List<Projectile> projectiles;
         List<Enemy> enemies;
-        List<Ally> allies;
         World world;
 
         public List<Client> clients;
 
         ServerTCP tcp;
 
-        public ServerManager(List<Projectile> p, List<Enemy> e, List<Ally> a, Player pl, World w)
+        public ServerManager(List<Projectile> p, List<Enemy> e, List<Client> c, Player pl, World w)
         {
             projectiles = p;
             enemies = e;
-            allies = a;
+            clients = c;
             player = pl;
             world = w;
         }
