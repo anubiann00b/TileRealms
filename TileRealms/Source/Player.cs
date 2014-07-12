@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TileRealms.Source.Player;
 
 namespace TileRealms
 {
@@ -16,12 +17,20 @@ namespace TileRealms
         Sprite sprite;
         public Vector2 location;
 
+        Health playerHealth;
+
         KeyboardState oldState;
         int speed = 8;
+        public bool dead = false;
+
+        Rectangle playerRect;
+        Rectangle enemyRect;
 
         public void Initialize(Viewport vp)
         {
             viewport = vp;
+
+            playerHealth = new Health();
 
             sprite = new Sprite(new TextureLibrary[] 
                 {
@@ -32,6 +41,9 @@ namespace TileRealms
                 },
                 4, new Vector2(16, 16), 166
             );
+
+            playerRect = new Rectangle(0, 0, 64, 64);
+            enemyRect = new Rectangle(0, 0, 64, 64);
         }
 
         public void UnloadContent()
@@ -97,6 +109,23 @@ namespace TileRealms
         public void Draw(SpriteBatch spriteBatch, double time)
         {
             sprite.Draw(spriteBatch, time, location);
+            playerHealth.Draw(spriteBatch, time);
+        }
+
+        public bool Hit(Enemy e)
+        {
+            enemyRect.X = (int)e.location.X;
+            enemyRect.Y = (int)e.location.Y;
+            playerRect.X = (int)location.X;
+            playerRect.Y = (int)location.Y;
+
+            return playerRect.Intersects(enemyRect);
+        }
+
+        public void Damage()
+        {
+            playerHealth.Update(0.02);
+            dead = playerHealth.hp < 0;
         }
     }
 }

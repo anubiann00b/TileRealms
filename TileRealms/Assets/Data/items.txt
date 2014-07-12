@@ -1,3 +1,15 @@
 ﻿Red Potion
 Blue Potion
 Orange Potion
+Ingrid Potion
+Yellow Potion
+Mana Potion
+Red Elixr
+Blue Elixr
+Orange Elixr
+Ingrid Elixr
+Magical Elixr
+Enchanted Elixr
+Rare Elixr
+Holy Elixr
+Legendary Elixr

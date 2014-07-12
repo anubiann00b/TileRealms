@@ -160,16 +160,11 @@ namespace TileRealms
                 }
 
                 if (enemies.Count > 0)
-                {
-                    Rectangle rect = new Rectangle(64, 64, (int)player.location.X, (int)player.location.Y);
-                    Rectangle trect = new Rectangle(64, 64, (int)enemies.ElementAt(i).location.X, (int)enemies.ElementAt(i).location.Y);
-                    
-                    if (rect.Contains(trect))
+                { 
+                    if (player.Hit(e))
                     {
-                        enemies.RemoveAt(i);
+                        player.Damage();
                     }
-                   
-
                 }
             }
 

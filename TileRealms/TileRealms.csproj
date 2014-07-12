@@ -145,6 +145,7 @@
     <Compile Include="Source\Network\Server\ServerManager.cs" />
     <Compile Include="Source\Network\Server\ServerTCP.cs" />
     <Compile Include="Source\Network\Server\ServerUDP.cs" />
+    <Compile Include="Source\Player\Health.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />
     <Compile Include="Source\Projectile\Projectile.cs" />
