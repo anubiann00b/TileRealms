@@ -220,7 +220,7 @@ namespace TileRealms
                 item.Draw(spriteBatch, frameTime);
             }
 
-            player.Draw(spriteBatch, frameTime);
+            player.Draw(spriteBatch, frameTime, camera);
             spriteBatch.End();
         }
     }

@@ -24,7 +24,8 @@ namespace TileRealms.Source.Player
         public int hp;
         int maxhp;
         public bool dead = false;
-
+        int originalWidth;
+        
         public Health()
         {
             Initialize(100);
@@ -38,6 +39,7 @@ namespace TileRealms.Source.Player
             healthP = new Animation(TextureLibrary.Health, 1, new Vector2(160, 20), 100000);
             barPos = new Vector2(0, 0);
             hPos = new Vector2(0, 0);
+            originalWidth = healthP.destRect.X;
         }
 
 
@@ -45,15 +47,15 @@ namespace TileRealms.Source.Player
         {
             ha -= perc;
             hp = Convert.ToInt32(maxhp * ha);
-            healthP.SetWidth(ha);
-            dead = ha < 0;
+            healthP.SetWidth(ha, originalWidth);
+            dead = hp < 0;
         }
 
 
-        public void Draw(SpriteBatch spriteBatch, double GameTime)
+        public void Draw(SpriteBatch spriteBatch, double GameTime, Vector2 camera)
         {
-            HB.Draw(spriteBatch, GameTime, barPos);
-            healthP.Draw(spriteBatch, GameTime, hPos);
+            HB.Draw(spriteBatch, GameTime, new Vector2(barPos.X + camera.X, barPos.Y + camera.Y));
+            healthP.Draw(spriteBatch, GameTime, new Vector2(hPos.X + camera.X, hPos.Y + camera.Y));
         }
     }
 }

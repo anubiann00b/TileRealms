@@ -106,10 +106,10 @@ namespace TileRealms
             location.Y += (int)(dy * speed * time);
         }
 
-        public void Draw(SpriteBatch spriteBatch, double time)
+        public void Draw(SpriteBatch spriteBatch, double time, Vector2 camera)
         {
             sprite.Draw(spriteBatch, time, location);
-            playerHealth.Draw(spriteBatch, time);
+            playerHealth.Draw(spriteBatch, time, camera);
         }
 
         public bool Hit(Enemy e)
@@ -124,7 +124,7 @@ namespace TileRealms
 
         public void Damage()
         {
-            playerHealth.Update(0.001);
+            playerHealth.Update(0.0001);
             dead = playerHealth.hp < 0;
         }
     }

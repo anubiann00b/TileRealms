@@ -16,7 +16,7 @@ namespace TileRealms
         int numFrames;
         int currentFrame;
 
-        Rectangle destRect;
+        public Rectangle destRect;
         Rectangle srcRect;
 
         Vector2 size;
@@ -75,9 +75,10 @@ namespace TileRealms
             currentFrame = frame;
         }
 
-        public void SetWidth(double percentage)
+        public void SetWidth(double percentage, int originalWidth)
         {
-            destRect.Width = Convert.ToInt32(destRect.Width * percentage);
+            if (percentage < 0) percentage = 0;
+            destRect.Width = Convert.ToInt32(originalWidth * percentage);
         }
     }
 }

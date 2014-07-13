@@ -20,7 +20,7 @@ namespace TileRealms.Source.Player.Appearance
         public Vector2 location;
         Vector2 size;
 
-        public Bottom(Viewport vp)
+        public Hat(Viewport vp)
         {
             viewport = vp;
             sprite = new Sprite(new TextureLibrary[] 

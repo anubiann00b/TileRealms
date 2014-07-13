@@ -23,6 +23,7 @@ namespace TileRealms.Source.Health
         double ha = 1;
         int hp;
         public bool dead = false;
+        int originalWidth;
 
         public Health(int health)
 	    {
@@ -36,20 +37,21 @@ namespace TileRealms.Source.Health
             healthP = new Animation(TextureLibrary.Health, 1, new Vector2(16, 2), 100000);
             barPos = new Vector2(0, 0);
             hPos = new Vector2(0, 0);
+            originalWidth = healthP.destRect.Width;
         }
 
-        
+
 
         public void Update(double perc)
         {
             ha -= perc;
-            healthP.SetWidth(ha);
-            dead = ha < 0;
+            healthP.SetWidth(ha, originalWidth);
         }
 
 
         public void Draw(SpriteBatch spriteBatch, double GameTime, Vector2 pmLocation, Vector2 pmSize)
         {
+            dead = ha < 0;
             if (ha < 1 && !dead)
             {
                 barPos.X = pmLocation.X;
