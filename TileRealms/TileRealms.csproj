@@ -145,13 +145,6 @@
     <Compile Include="Source\Network\Server\ServerManager.cs" />
     <Compile Include="Source\Network\Server\ServerTCP.cs" />
     <Compile Include="Source\Network\Server\ServerUDP.cs" />
-    <Compile Include="Source\Player\Accesories\Appearance.cs" />
-    <Compile Include="Source\Player\Accesories\Bottom.cs" />
-    <Compile Include="Source\Player\Accesories\Gloves.cs" />
-    <Compile Include="Source\Player\Accesories\Hair.cs" />
-    <Compile Include="Source\Player\Accesories\Hat.cs" />
-    <Compile Include="Source\Player\Accesories\Top.cs" />
-    <Compile Include="Source\Player\Accesories\Weapons.cs" />
     <Compile Include="Source\Player\Health.cs" />
     <Compile Include="Source\Projectile\MovementLinear.cs" />
     <Compile Include="Source\Projectile\MovementPattern.cs" />
@@ -165,6 +158,7 @@
     <Compile Include="Source\States\MainState.cs" />
     <Compile Include="Source\States\MenuState.cs" />
     <Compile Include="Source\States\State.cs" />
+    <Compile Include="Source\World\Dungeon\DungeonGeneration.cs" />
     <Compile Include="Source\World\Dungeon\DungeonLevel.cs" />
     <Compile Include="Source\World\Map.cs" />
     <Compile Include="Source\World\Tile.cs" />
