@@ -17,6 +17,7 @@ namespace TileRealms.Source.World.Dungeon
     class DungeonGeneration
     {
         List<Rectangle> rooms;
+        List<Tile[,]> Dungeon;
         Random r;
         Viewport viewport;
         Vector2 world;
@@ -62,10 +63,33 @@ namespace TileRealms.Source.World.Dungeon
         }
 
         public void DisplayRooms()
-        {
+        {  
             for (int i = 0; i < rooms.Count; i++)
             {
+                Dungeon[i] = new Tile[(rooms.ElementAt(i).Width / 64) + 1, rooms.ElementAt(i).Height + 1];
+                for (int x = 0; x < rooms.ElementAt(i).Width + 1; x++)
+                {
+                    for (int y = 0; y < rooms.ElementAt(i).Height + 1; y++)
+                    {
+                        Dungeon.ElementAt(i)[x, y] = Tile.TILE_WATER;
+                    }
+                }
+            }
+        }
 
+        public void DrawRooms(SpriteBatch spriteBatch, Vector2 camera, Viewport view)
+        {
+            for (int a = ; a < Dungeon.Count; a++)
+            {
+                for (int i = (int)(camera.X / 64); i < (int)((camera.X + view.Width) / 64) + 1; i++)
+                {
+                    for (int j = (int)(camera.Y / 64); j < (int)((camera.Y + view.Height) / 64) + 1; j++)
+                    {
+                        if (i >= Dungeon[a].GetLength(0) || j >= Dungeon[a].GetLength(1))
+                            continue;
+                        Dungeon[a][i, j].Draw(spriteBatch, new Vector2(i * 64, j * 64));
+                    }
+                }
             }
         }
     }

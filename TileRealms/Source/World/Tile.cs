@@ -12,7 +12,7 @@ namespace TileRealms
     class Tile
     {
         public static Tile TILE_GRASS = new Tile("grass_basic");
-        //public static Tile TILE_WATER = new Tile("grass_water");
+        public static Tile TILE_WATER = new Tile("water_basic");
         //public static Tile TILE_WOOD = new Tile("grass_wood");
 
         private static Rectangle srcRect = new Rectangle(0, 0, 16, 16);
