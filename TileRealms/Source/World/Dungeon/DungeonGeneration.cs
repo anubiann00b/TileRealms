@@ -79,7 +79,7 @@ namespace TileRealms.Source.World.Dungeon
 
         public void DrawRooms(SpriteBatch spriteBatch, Vector2 camera, Viewport view)
         {
-            for (int a = ; a < Dungeon.Count; a++)
+            for (int a = 0 ; a < Dungeon.Count; a++)
             {
                 for (int i = (int)(camera.X / 64); i < (int)((camera.X + view.Width) / 64) + 1; i++)
                 {
