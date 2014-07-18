@@ -10,87 +10,69 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
 using System.Xml;
+using TileRealms.Source.World.Dungeon;
 
 
 namespace TileRealms.Source.World.Dungeon
 {
     class DungeonGeneration
     {
-        List<Rectangle> rooms;
-        List<Tile[,]> Dungeon;
-        Random r;
-        Viewport viewport;
-        Vector2 world;
+        private static Random rnd = new Random();
 
-        public DungeonGeneration(Viewport vp, Vector2 wrld)
+
+
+        public static void main(String[] args)
         {
-            r = new Random();
-            int scrap = r.Next();
-            viewport = vp;
-            world = wrld;
-            Initialize();
-        }
-
-        private void Initialize()
-        {
-            Rectangle room = new Rectangle(r.Next(0, (int)world.X), r.Next(0, (int)world.Y), r.Next(viewport.Width / 5, viewport.Width * 4), r.Next(viewport.Height / 5, viewport.Height * 4));
-            rooms.Add(room);
-        }
-
-        public void CreateRooms()
-        {
-            int max =  r.Next(5, 15);
-            while (rooms.Count < max)
-            {
-                Rectangle room = new Rectangle(r.Next(0, (int)world.X), r.Next(0, (int)world.Y), r.Next(viewport.Width / 5, viewport.Width * 4), r.Next(viewport.Height / 5, viewport.Height * 4));
-
-                bool isBreakable = false;
-                for (int x = 0; x < rooms.Count; x++)
-                {
-                    if (rooms.ElementAt(x).Intersects(room))
-                    {
-                        isBreakable = true;
-                    }
-                    if (isBreakable) break;
+            List<Rectangle> rectangles = new List<Rectangle>(); // flat rectangle store to help pick a random one
+            Rectangle root = new Rectangle(0, 0, 60, 120); //
+            rectangles.add(root); //populate rectangle store with root area
+            while (rectangles.size() < 19)
+            { // this will give us 10 leaf areas
+                int splitIdx = rnd.nextInt(rectangles.size()); // choose a random element
+                Rectangle toSplit = rectangles.get(splitIdx);
+                if (toSplit.split())
+                { //attempt to split
+                    rectangles.add(toSplit.leftChild);
+                    rectangles.add(toSplit.rightChild);
                 }
-                if (isBreakable) continue;
 
+            }
+            root.generateDungeon(); //generate dungeons
+
+            printDungeons(rectangles); //this is just to test the output
+
+        }
+
+
+
+        private static void printDungeons(ArrayList<Rectangle> rectangles) {
+        byte [][] lines = new byte[60][];
+        for( int i = 0; i < 60; i++ ) {
+            lines[ i ] = new byte[120];
+            for( int j = 0; j < 120; j++ )
+                lines[ i ][ j ] =  -1;
+        }
+        byte dungeonCount = -1;
+        for( Rectangle r : rectangles ) {
+            if( r.dungeon == null )
+                continue;
+            Rectangle d = r.dungeon;
+            dungeonCount++;
+            for( int i = 0; i < d.height; i++ ) {
+                for( int j = 0; j < d.width; j++ )
+
+                    lines[ d.top + i ][ d.left+ j ] = dungeonCount;
+            }
+        }
+        for( int i = 0; i < 60; i++ ) {
+            for( int j = 0; j < 120; j++ ) {
+                if( lines[ i ][ j ] == -1 )
+                    System.out.print( '.');
                 else
-                {
-                    rooms.Add(room);
-                }
+                    System.out.print( lines[ i ][ j ] );
             }
+            System.out.println();
         }
-
-        public void DisplayRooms()
-        {  
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                Dungeon[i] = new Tile[(rooms.ElementAt(i).Width / 64) + 1, rooms.ElementAt(i).Height + 1];
-                for (int x = 0; x < rooms.ElementAt(i).Width + 1; x++)
-                {
-                    for (int y = 0; y < rooms.ElementAt(i).Height + 1; y++)
-                    {
-                        Dungeon.ElementAt(i)[x, y] = Tile.TILE_WATER;
-                    }
-                }
-            }
-        }
-
-        public void DrawRooms(SpriteBatch spriteBatch, Vector2 camera, Viewport view)
-        {
-            for (int a = 0 ; a < Dungeon.Count; a++)
-            {
-                for (int i = (int)(camera.X / 64); i < (int)((camera.X + view.Width) / 64) + 1; i++)
-                {
-                    for (int j = (int)(camera.Y / 64); j < (int)((camera.Y + view.Height) / 64) + 1; j++)
-                    {
-                        if (i >= Dungeon[a].GetLength(0) || j >= Dungeon[a].GetLength(1))
-                            continue;
-                        Dungeon[a][i, j].Draw(spriteBatch, new Vector2(i * 64, j * 64));
-                    }
-                }
-            }
-        }
+    }
     }
 }

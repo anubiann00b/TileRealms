@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using TileRealms.Source.Enemy;
 using TileRealms.Source.Health;
 using TileRealms.Source.Items;
+using TileRealms.Source.World.Dungeon;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 
@@ -21,7 +22,7 @@ namespace TileRealms
         Random r;
 
         World world;
-
+      
         Vector2 camera;
         Vector2 worldSize;
 
@@ -60,6 +61,9 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
+
+            dungeon = new DungeonGeneration(viewport, worldSize);
+            dungeon.CreateRooms();
         }
 
         public override void LoadContent()
@@ -213,6 +217,9 @@ namespace TileRealms
                 Projectile p = projectiles.ElementAt(i);
                 p.Draw(spriteBatch, frameTime);
             }
+
+            dungeon.DisplayRooms();
+            dungeon.DrawRooms(spriteBatch, camera, viewport);
 
             for (int i = 0; i < items.Count; i++)
             {
