@@ -45,7 +45,7 @@ namespace TileRealms.Source.World.Dungeon
 
 
 
-        private static void printDungeons(ArrayList<Rectangle> rectangles) {
+        private static void printDungeons(List<Rectangle> rectangles) {
         byte [][] lines = new byte[60][];
         for( int i = 0; i < 60; i++ ) {
             lines[ i ] = new byte[120];
