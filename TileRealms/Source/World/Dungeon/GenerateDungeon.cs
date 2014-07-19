@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
 using System.Xml;
+using Windows.Storage;
 
 
 namespace TileRealms.Source.World.Dungeon
@@ -42,11 +43,11 @@ namespace TileRealms.Source.World.Dungeon
             }
 
             root.generateDungeon();
-            printDungeons(rectangles); //Test Output DOES IT WORK???//i got a dungeon genartion couuld MY BAD TRY IT AGAIN not be found//i keep getting dungeon gen could not be found.
+            printDungeons(rectangles); ///I fixed everything it runs, but i can't see the rooms
         }
 
 
-        private static void printDungeons(List<Rectangle> rectangles) {
+        private async static void printDungeons(List<Rectangle> rectangles) {
             int [,] lines = new int[60, 120];
         
             for (int i = 0; i < 60; i++) // i think thi'll work hopefully if it doesn't we can revert//I'll fix it if it doesn't work
@@ -69,17 +70,24 @@ namespace TileRealms.Source.World.Dungeon
                 }
             }
 
+            var path = @"dungeonGenerate.txt";
+            var InstalledLocation = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            var file = await InstalledLocation.GetFileAsync(path);
+
+            if ((file.Attributes & FileAttributes.ReadOnly) > 0)
+                Debug.WriteLine("IT'S READ ONLY THE WORLD IS NOW OVER");
+
             for (int i = 0; i < 60; i++) 
             {
                 for (int j = 0; j < 120; j++) 
                 {
                     if (lines[i, j] == -1)
-                        Debug.WriteLine(".");
+                        await FileIO.WriteTextAsync(file, ".");
                     else
-                        Debug.WriteLine(lines[i, j]);
+                        await FileIO.WriteTextAsync(file, lines[i, j].ToString());
                 }
-                Debug.WriteLine("");
+                await FileIO.WriteTextAsync(file, "\n");
             }
         }
-    } // please let's get the indents right
+    }
 }

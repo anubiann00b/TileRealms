@@ -174,6 +174,7 @@
     <Content Include="Assets\Data\Accesories\top.txt" />
     <Content Include="Assets\Data\enemyProfile.txt" />
     <Content Include="Assets\Data\items.txt" />
+    <Content Include="dungeonGenerate.txt" />
     <Content Include="Content\Basic-spritesheet.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -241,7 +242,9 @@
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Dungeon\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

@@ -33,6 +33,7 @@ namespace TileRealms
         List<Items> items;
 
         Texture2D CollisionBox;
+        GenerateDungeon dungeonGenerator;
 
         double ttime;
 
@@ -61,6 +62,9 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
+
+            dungeonGenerator = new GenerateDungeon();
+            dungeonGenerator.Initialize();
         }
 
         public override void LoadContent()
