@@ -22,7 +22,8 @@ namespace TileRealms
         Random r;
 
         World world;
-        
+        DungeonGeneration dungeon;
+
         Vector2 camera;
         Vector2 worldSize;
 
@@ -61,6 +62,9 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
+
+            dungeon = new DungeonGeneration(viewport, worldSize);
+            dungeon.CreateRooms();
         }
 
         public override void LoadContent()
@@ -215,7 +219,8 @@ namespace TileRealms
                 p.Draw(spriteBatch, frameTime);
             }
 
-           
+            dungeon.DisplayRooms();
+            //dungeon.DrawRooms(spriteBatch, camera, viewport);
 
             for (int i = 0; i < items.Count; i++)
             {

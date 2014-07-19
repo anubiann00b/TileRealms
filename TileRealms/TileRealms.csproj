@@ -158,7 +158,7 @@
     <Compile Include="Source\States\MainState.cs" />
     <Compile Include="Source\States\MenuState.cs" />
     <Compile Include="Source\States\State.cs" />
-    <Compile Include="Source\World\Dungeon\DungeonGeneration.cs" />
+    <Compile Include="Source\World\Dungeon\GenerateDungeon.cs" />
     <Compile Include="Source\World\Dungeon\Rectangle.cs" />
     <Compile Include="Source\World\Tile.cs" />
     <Compile Include="Source\World\World.cs" />
@@ -177,7 +177,9 @@
     <Content Include="Content\Basic-spritesheet.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\dirt_basic.xnb" />
+    <Content Include="Content\dirt_basic.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\grass_basic.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
