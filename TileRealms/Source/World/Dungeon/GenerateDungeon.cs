@@ -79,14 +79,15 @@ namespace TileRealms.Source.World.Dungeon
 
             for (int i = 0; i < 60; i++) 
             {
+                string line = "";
                 for (int j = 0; j < 120; j++) 
                 {
                     if (lines[i, j] == -1)
-                        await FileIO.WriteTextAsync(file, ".");
+                        line += ".";
                     else
-                        await FileIO.WriteTextAsync(file, lines[i, j].ToString());
+                        line += lines[i, j];
                 }
-                await FileIO.WriteTextAsync(file, "\n");
+                Debug.WriteLine(line);
             }
         }
     }
