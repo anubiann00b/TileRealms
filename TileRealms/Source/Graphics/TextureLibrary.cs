@@ -25,6 +25,9 @@ namespace TileRealms
         public static TextureLibrary HealthBar= new TextureLibrary(@"Health\Health-bar");
         public static TextureLibrary Health = new TextureLibrary(@"Health\Health");
 
+
+        public static TextureLibrary PlayerHUD = new TextureLibrary(@"HUD\PlayerHUD");
+
         public static void LoadLibraryContent(ContentManager content)
         {
             PLAYER_RIGHT.LoadContent(content);
@@ -41,6 +44,8 @@ namespace TileRealms
 
             HealthBar.LoadContent(content);
             Health.LoadContent(content);
+
+            PlayerHUD.LoadContent(content);
         }
 
         String path;

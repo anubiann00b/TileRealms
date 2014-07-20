@@ -11,6 +11,7 @@ using TileRealms.Source.Enemy;
 using TileRealms.Source.Health;
 using TileRealms.Source.Items;
 using TileRealms.Source.World.Dungeon;
+using TileRealms.Source.HUD;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 
@@ -31,6 +32,8 @@ namespace TileRealms
         List<Enemy> enemies;
         List<Projectile> projectiles;
         List<Items> items;
+
+        HUDController HUDSystem;
 
         Texture2D CollisionBox;
         GenerateDungeon dungeonGenerator;
@@ -62,6 +65,8 @@ namespace TileRealms
             enemies.Add(e);
 
             ttime = 0f;
+
+            HUDSystem = new HUDController(viewport);
 
             dungeonGenerator = new GenerateDungeon();
             dungeonGenerator.Initialize();
@@ -188,8 +193,7 @@ namespace TileRealms
                     items.RemoveAt(i);
                     i--;
                 }
-            }
-
+            }            
                 return this;
         }
 
@@ -213,19 +217,20 @@ namespace TileRealms
                 Enemy e = enemies.ElementAt(i);
                 e.Draw(spriteBatch, frameTime);
             }
+
             for (int i = 0; i < projectiles.Count; i++)
             {
                 Projectile p = projectiles.ElementAt(i);
                 p.Draw(spriteBatch, frameTime);
             }
 
-           
-
             for (int i = 0; i < items.Count; i++)
             {
                 Items item = items.ElementAt(i);
                 item.Draw(spriteBatch, frameTime);
             }
+
+            HUDSystem.Draw(spriteBatch, frameTime, camera);
 
             player.Draw(spriteBatch, frameTime, camera);
             spriteBatch.End();

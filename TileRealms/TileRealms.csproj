@@ -135,6 +135,8 @@
     <Compile Include="Source\Enemy\EnemyController.cs" />
     <Compile Include="Source\Graphics\TextureLibrary.cs" />
     <Compile Include="Source\Health\Health.cs" />
+    <Compile Include="Source\HUD\HUD.cs" />
+    <Compile Include="Source\HUD\HUDController.cs" />
     <Compile Include="Source\Items\ItemDatabase.cs" />
     <Compile Include="Source\Items\ItemProfile.cs" />
     <Compile Include="Source\Items\Items.cs" />
@@ -228,6 +230,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Player_Accesories\base-up.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\HUD\PlayerHUD.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Source\Enemy\Data\exp.txt" />
