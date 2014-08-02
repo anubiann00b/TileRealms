@@ -30,8 +30,8 @@ namespace TileRealms
             IsMouseVisible = true;
 
             viewport = GraphicsDevice.Viewport;
-            currentState = new GameState(graphics, Content, viewport);
 
+            currentState = new MenuState(graphics, Content, viewport);
             currentState.Initialize();
 
             base.Initialize();
@@ -57,7 +57,7 @@ namespace TileRealms
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.SkyBlue);
             currentState.Draw(gameTime, spriteBatch);
             base.Draw(gameTime);
         }
